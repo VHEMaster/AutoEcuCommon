@@ -270,10 +270,8 @@ typedef struct {
     float start_econ_delay[TABLE_TEMPERATURES_MAX];
 
     int32_t enrichment_async_pulses_divider;
-    float enrichment_injection_phase_decay_time;
-    float enrichment_injection_phase[TABLE_ROTATES_MAX];
 
-    int32_t reserved[887];
+    int32_t reserved[904];
 }sEcuTable;
 
 typedef struct {
