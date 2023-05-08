@@ -275,8 +275,9 @@ typedef struct {
     float enrichment_end_injection_final_phase;
     int32_t enrichment_ph_post_injection_enabled;
     int32_t enrichment_pp_post_injection_enabled;
+    float enrichment_end_injection_final_amount;
 
-    int32_t reserved[884];
+    int32_t reserved[883];
 }sEcuTable;
 
 typedef struct {
