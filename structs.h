@@ -272,8 +272,11 @@ typedef struct {
     int32_t enrichment_async_pulses_divider;
     float enrichment_injection_phase_decay_time;
     float enrichment_injection_phase[TABLE_ROTATES_MAX];
+    float enrichment_end_injection_final_phase;
+    int32_t enrichment_ph_post_injection_enabled;
+    int32_t enrichment_pp_post_injection_enabled;
 
-    int32_t reserved[887];
+    int32_t reserved[884];
 }sEcuTable;
 
 typedef struct {
