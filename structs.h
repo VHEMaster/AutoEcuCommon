@@ -554,6 +554,7 @@ typedef struct {
         uint32_t DetonationCount;
         uint32_t DetonationCountCy[ECU_CYLINDERS_COUNT];
         float Voltages[ECU_CYLINDERS_COUNT];
+        float VoltagesLpf[ECU_CYLINDERS_COUNT];
         float Denoised[ECU_CYLINDERS_COUNT];
         float Detonates[ECU_CYLINDERS_COUNT];
         float Advances[ECU_CYLINDERS_COUNT];
