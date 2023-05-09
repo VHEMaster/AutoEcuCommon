@@ -64,13 +64,6 @@ typedef enum {
   OutputDiagShortToGnd = 3
 }eOutputDiagnosticStatus;
 
-typedef enum {
-  KnockStatusOk = 0,
-  KnockStatusDedonation = 1,
-  KnockStatusLowNoise = 2,
-  KnockStatusLowNoiseAndDetonation = 3
-}eKnockStatus;
-
 typedef struct {
   struct {
     union {
@@ -499,120 +492,6 @@ typedef struct {
     } Enable;
     uint32_t pad;
 }sForceParameters;
-
-typedef struct {
-    union {
-        struct {
-            HAL_StatusTypeDef Load : 2;
-            HAL_StatusTypeDef Save : 2;
-            HAL_StatusTypeDef Init : 2;
-        }Struct;
-        uint8_t Byte;
-    }Flash;
-    union {
-        struct {
-            HAL_StatusTypeDef CriticalSave : 2;
-            HAL_StatusTypeDef CriticalLoad : 2;
-            HAL_StatusTypeDef CorrsSave : 2;
-            HAL_StatusTypeDef CorrsLoad : 2;
-        }Struct;
-        uint8_t Byte;
-    }Bkpsram;
-    union {
-        struct {
-            HAL_StatusTypeDef Map : 2;
-            HAL_StatusTypeDef Knock : 2;
-            HAL_StatusTypeDef Csps : 2;
-            HAL_StatusTypeDef Tsps : 2;
-            HAL_StatusTypeDef AirTemp : 2;
-            HAL_StatusTypeDef EngineTemp : 2;
-            HAL_StatusTypeDef ThrottlePos : 2;
-            HAL_StatusTypeDef ReferenceVoltage : 2;
-            HAL_StatusTypeDef PowerVoltage : 2;
-            HAL_StatusTypeDef Lambda : 2;
-        }Struct;
-        uint32_t Dword;
-    }Sensors;
-    HAL_StatusTypeDef OutputStatus;
-    sOutputDiagnostic OutputDiagnostic;
-    HAL_StatusTypeDef IdleValvePosition;
-    HAL_StatusTypeDef O2Status;
-    HAL_StatusTypeDef O2TemperatureStatus;
-    HAL_StatusTypeDef O2HeaterStatus;
-    HAL_StatusTypeDef AdcStatus;
-    HAL_StatusTypeDef TspsSyncStatus;
-    HAL_StatusTypeDef CanInitStatus;
-    HAL_StatusTypeDef CanTestStatus;
-    HAL_StatusTypeDef KlineProtocolStatus;
-    HAL_StatusTypeDef KlineLoopbackStatus;
-    sO2Diagnostic O2Diagnostic;
-
-    struct {
-        eKnockStatus GeneralStatus;
-        uint32_t DetonationLast;
-        uint32_t LowNoiseLast;
-        uint32_t DetonationCount;
-        uint32_t DetonationCountCy[ECU_CYLINDERS_COUNT];
-        float Voltages[ECU_CYLINDERS_COUNT];
-        float VoltagesLpf[ECU_CYLINDERS_COUNT];
-        float Denoised[ECU_CYLINDERS_COUNT];
-        float Detonates[ECU_CYLINDERS_COUNT];
-        float Advances[ECU_CYLINDERS_COUNT];
-        uint32_t LastTime[ECU_CYLINDERS_COUNT];
-        uint32_t Period[ECU_CYLINDERS_COUNT];
-        float Voltage;
-        float Filtered;
-        float Detonate;
-        float StatusVoltage;
-        float StatusFiltered;
-        float StatusDetonate;
-        float Advance;
-        uint8_t Updated[ECU_CYLINDERS_COUNT];
-    }Knock;
-    struct {
-        uint8_t is_error;
-        uint32_t error_time;
-        uint32_t error_last;
-    }InjectionUnderflow;
-    struct {
-        uint8_t is_error;
-        uint32_t error_time;
-        uint32_t error_last;
-    }MapTpsRelation;
-    struct {
-        uint8_t is_error;
-        uint32_t error_time;
-        uint32_t error_last;
-    }LeanMixture;
-    struct {
-        uint8_t is_error;
-        uint32_t error_time;
-        uint32_t error_last;
-    }RichMixture;
-    struct {
-        uint8_t is_error;
-        uint32_t error_time;
-        uint32_t error_last;
-    }LeanIdleMixture;
-    struct {
-        uint8_t is_error;
-        uint32_t error_time;
-        uint32_t error_last;
-    }RichIdleMixture;
-    struct {
-        uint8_t is_error;
-        uint8_t is_running;
-        uint32_t run_time;
-        uint32_t error_time;
-        uint32_t error_started;
-    }OilPressure;
-    struct {
-        uint8_t is_error;
-        uint8_t is_running;
-        uint32_t run_time;
-    }BatteryCharge;
-    //TODO: add more diagnostic fields
-}sStatus;
 
 typedef struct {
     float km_driven;
