@@ -146,6 +146,14 @@ typedef struct {
     float enrichment_ign_corr_decay_time;
     float enrichment_detect_duration;
 
+    int32_t enrichment_async_pulses_divider;
+    float enrichment_injection_phase_decay_time;
+    float enrichment_injection_phase[TABLE_ROTATES_MAX];
+    float enrichment_end_injection_final_phase;
+    int32_t enrichment_ph_post_injection_enabled;
+    int32_t enrichment_pp_post_injection_enabled;
+    float enrichment_end_injection_final_amount;
+
     int32_t enrichment_rate_start_load_count;
     int32_t enrichment_rate_load_derivative_count;
     float enrichment_rate_start_load[TABLE_ENRICHMENT_PERCENTS_MAX];
@@ -246,14 +254,6 @@ typedef struct {
     float idle_ignition_time_by_tps[TABLE_THROTTLES_MAX];
     float idle_econ_delay[TABLE_TEMPERATURES_MAX];
     float start_econ_delay[TABLE_TEMPERATURES_MAX];
-
-    int32_t enrichment_async_pulses_divider;
-    float enrichment_injection_phase_decay_time;
-    float enrichment_injection_phase[TABLE_ROTATES_MAX];
-    float enrichment_end_injection_final_phase;
-    int32_t enrichment_ph_post_injection_enabled;
-    int32_t enrichment_pp_post_injection_enabled;
-    float enrichment_end_injection_final_amount;
 
     int32_t reserved[1700];
 }sEcuTable;
