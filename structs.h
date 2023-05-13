@@ -112,7 +112,6 @@ typedef struct {
     eInjChannel inj_channel;
 
     float injector_performance;
-    int32_t is_full_thr_used;
     int32_t is_fuel_pressure_const;
     int32_t is_fuel_phase_by_end;
     int32_t enrichment_ph_async_enabled;
@@ -160,23 +159,9 @@ typedef struct {
     int32_t fillings_count;
     float fillings[TABLE_FILLING_MAX];
 
-    struct {
-        struct {
-            float ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-            float fuel_mixtures[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-            float injection_phase[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-        } full_throttle;
-
-        struct {
-            float ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-            float fuel_mixtures[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-            float injection_phase[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-        } part_load;
-
-        float switch_ign_lpf[TABLE_ROTATES_MAX];
-        float switch_mix_lpf[TABLE_ROTATES_MAX];
-        float switch_phase_lpf[TABLE_ROTATES_MAX];
-    } main;
+    float ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
+    float fuel_mixtures[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
+    float injection_phase[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
 
     float injection_phase_lpf[TABLE_ROTATES_MAX];
 
@@ -270,7 +255,7 @@ typedef struct {
     int32_t enrichment_pp_post_injection_enabled;
     float enrichment_end_injection_final_amount;
 
-    int32_t reserved[883];
+    int32_t reserved[1700];
 }sEcuTable;
 
 typedef struct {
