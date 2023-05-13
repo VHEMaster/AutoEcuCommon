@@ -122,6 +122,9 @@ typedef struct {
     float fuel_mass_per_cc;
     float fuel_afr;
 
+    int32_t cylinders_count;
+    float cylinders[ECU_CYLINDERS_COUNT];
+
     int32_t voltages_count;
     float voltages[TABLE_VOLTAGES_MAX];
 
@@ -244,6 +247,7 @@ typedef struct {
     float knock_zone[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
     float knock_gain[TABLE_ROTATES_MAX];
     float knock_filter_frequency[TABLE_ROTATES_MAX];
+    float knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_MAX];
 
     float cy_corr_injection[ECU_CYLINDERS_COUNT];
     float cy_corr_ignition[ECU_CYLINDERS_COUNT];
@@ -255,7 +259,7 @@ typedef struct {
     float idle_econ_delay[TABLE_TEMPERATURES_MAX];
     float start_econ_delay[TABLE_TEMPERATURES_MAX];
 
-    int32_t reserved[1700];
+    int32_t reserved[1631];
 }sEcuTable;
 
 typedef struct {
