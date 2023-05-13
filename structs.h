@@ -267,6 +267,7 @@ typedef struct {
     int8_t fill_by_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
     int8_t map_by_thr[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
     int8_t idle_valve_to_rpm[TABLE_TEMPERATURES_MAX][TABLE_ROTATES_MAX];
+    int8_t knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_MAX];
     float long_term_correction;
     float idle_correction;
 }sEcuCorrectionsBackup;
@@ -276,10 +277,12 @@ typedef struct {
     float fill_by_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
     float map_by_thr[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
     float idle_valve_to_rpm[TABLE_TEMPERATURES_MAX][TABLE_ROTATES_MAX];
+    float knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_MAX];
     uint8_t progress_ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
     uint8_t progress_fill_by_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
     uint8_t progress_map_by_thr[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
     uint8_t progress_idle_valve_to_rpm[TABLE_TEMPERATURES_MAX][TABLE_ROTATES_MAX];
+    uint8_t progress_knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_MAX];
     float knock_ignition_correctives[ECU_CYLINDERS_COUNT];
     float knock_injection_correctives[ECU_CYLINDERS_COUNT];
     float long_term_correction;
@@ -291,6 +294,7 @@ typedef struct {
     float progress_fill_by_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
     float progress_map_by_thr[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
     float progress_idle_valve_to_rpm[TABLE_TEMPERATURES_MAX][TABLE_ROTATES_MAX];
+    float progress_knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_MAX];
 }sEcuCorrectionsProgress;
 
 typedef struct {
