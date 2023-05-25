@@ -143,6 +143,13 @@ typedef struct {
     float fill_by_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
     float map_by_thr[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
 
+    int32_t use_idle_filling;
+    int32_t idle_filling_rotates_count;
+    int32_t idle_filling_pressures_count;
+    float idle_filling_rotates[TABLE_ROTATES_MAX];
+    float idle_filling_pressures[TABLE_PRESSURES_MAX];
+    float idle_filling_by_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
+
     int32_t enrichment_load_type;
     float enrichment_load_dead_band;
     float enrichment_accel_dead_band;
@@ -187,6 +194,8 @@ typedef struct {
     float air_temps[TABLE_TEMPERATURES_MAX];
     float air_temp_mix_corr[TABLE_TEMPERATURES_MAX][TABLE_FILLING_MAX];
     float air_temp_ign_corr[TABLE_TEMPERATURES_MAX][TABLE_FILLING_MAX];
+    float engine_temp_mix_corr[TABLE_TEMPERATURES_MAX][TABLE_FILLING_MAX];
+    float engine_temp_ign_corr[TABLE_TEMPERATURES_MAX][TABLE_FILLING_MAX];
 
     float idle_wish_rotates[TABLE_TEMPERATURES_MAX];
     float idle_wish_massair[TABLE_TEMPERATURES_MAX];
@@ -259,14 +268,7 @@ typedef struct {
     float idle_econ_delay[TABLE_TEMPERATURES_MAX];
     float start_econ_delay[TABLE_TEMPERATURES_MAX];
 
-    int32_t use_idle_filling;
-    int32_t idle_filling_rotates_count;
-    int32_t idle_filling_pressures_count;
-    float idle_filling_rotates[TABLE_ROTATES_MAX];
-    float idle_filling_pressures[TABLE_PRESSURES_MAX];
-    float idle_filling_by_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
-
-    int32_t reserved[1340];
+    int32_t reserved[828];
 }sEcuTable;
 
 typedef struct {
