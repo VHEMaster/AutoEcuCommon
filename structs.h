@@ -325,7 +325,7 @@ typedef struct {
 
     int32_t cutoffMode;
     float cutoffRPM;
-    float cutoffAngle;
+    float cutoffAdvance;
     float cutoffMixture;
     float oilPressureCutoffRPM;
 
@@ -353,7 +353,7 @@ typedef struct {
     float shiftThrThr;
     float shiftRpmThr;
     float shiftRpmTill;
-    float shiftAngle;
+    float shiftAdvance;
     float shiftMixture;
 
     float res1;
@@ -424,8 +424,8 @@ typedef struct {
     float WishIdleRPM;
     float WishIdleMassAirFlow;
     float WishIdleValvePosition;
-    float WishIdleIgnitionAngle;
-    float IgnitionAngle;
+    float WishIdleIgnitionAdvance;
+    float IgnitionAdvance;
     float InjectionPhase;
     float InjectionPhaseDuration;
     float InjectionPulse;
@@ -469,7 +469,7 @@ typedef struct {
 }sParameters;
 
 typedef struct {
-    float IgnitionAngle;
+    float IgnitionAdvance;
     float InjectionPhase;
     float IgnitionOctane;
     float IgnitionPulse;
@@ -477,14 +477,14 @@ typedef struct {
     float WishFuelRatio;
     float WishIdleRPM;
     float WishIdleValvePosition;
-    float WishIdleIgnitionAngle;
+    float WishIdleIgnitionAdvance;
     float WishIdleMassAirFlow;
     int32_t FanRelay;
     int32_t FanSwitch;
     int32_t FuelPumpRelay;
     int32_t CheckEngine;
     struct {
-      uint8_t IgnitionAngle;
+      uint8_t IgnitionAdvance;
       uint8_t InjectionPhase;
       uint8_t IgnitionOctane;
       uint8_t IgnitionPulse;
@@ -492,7 +492,7 @@ typedef struct {
       uint8_t WishFuelRatio;
       uint8_t WishIdleRPM;
       uint8_t WishIdleValvePosition;
-      uint8_t WishIdleIgnitionAngle;
+      uint8_t WishIdleIgnitionAdvance;
       uint8_t WishIdleMassAirFlow;
       uint8_t FanRelay;
       uint8_t FanSwitch;
