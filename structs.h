@@ -466,6 +466,9 @@ typedef struct {
     int32_t StartAllowed;
     int32_t IsRunning;
     int32_t IsCheckEngine;
+
+    int32_t CylinderIgnitionBitmask;
+    int32_t CylinderInjectionBitmask;
 }sParameters;
 
 typedef struct {
