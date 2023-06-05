@@ -47,6 +47,10 @@ PACKET_C(PK_IgnitionInjectionTestRequest);
 PACKET_C(PK_IgnitionInjectionTestResponse);
 PACKET_C(PK_SpecificParameterRequest);
 PACKET_C(PK_SpecificParameterResponse);
+PACKET_C(PK_SpecificParameterArrayConfigureRequest);
+PACKET_C(PK_SpecificParameterArrayConfigureResponse);
+PACKET_C(PK_SpecificParameterArrayRequest);
+PACKET_C(PK_SpecificParameterArrayResponse);
 
 #define SENDERS_MAX_COUNT 4
 

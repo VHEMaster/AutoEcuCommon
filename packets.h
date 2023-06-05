@@ -345,6 +345,38 @@ typedef struct
   } Parameter;
 }PACKET_DEFINE(PK_SpecificParameterResponse, 42);
 
+typedef struct
+{
+  PACKET_HEADER;
+  uint32_t Addrs[SPECIFIC_PARAMETERS_ARRAY_MAX_ITEMS];
+  uint32_t Period;
+}PACKET_DEFINE(PK_SpecificParameterArrayConfigureRequest, 43);
+
+typedef struct
+{
+  PACKET_HEADER;
+  uint32_t Addrs[SPECIFIC_PARAMETERS_ARRAY_MAX_ITEMS];
+  uint32_t Period;
+  uint32_t ErrorCode;
+  uint32_t BufferSize;
+}PACKET_DEFINE(PK_SpecificParameterArrayConfigureResponse, 44);
+
+typedef struct
+{
+  PACKET_HEADER;
+}PACKET_DEFINE(PK_SpecificParameterArrayRequest, 45);
+
+typedef struct
+{
+  PACKET_HEADER;
+  uint32_t ErrorCode;
+  uint32_t Items;
+  uint32_t Underflow;
+  uint32_t Length;
+  uint32_t IsLeft;
+  uDword Parameters[PACKET_SPECIFIC_PARAMETERS_ARRAY_MAX_SIZE];
+}PACKET_DEFINE(PK_SpecificParameterArrayResponse, 46);
+
 
 
 int16_t PK_Copy(void * dest, void * source);

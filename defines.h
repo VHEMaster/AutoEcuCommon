@@ -33,9 +33,13 @@
 #define PACKET_CONFIG_MAX_SIZE PACKET_TABLE_MAX_SIZE
 #define PACKET_CRITICAL_MAX_SIZE PACKET_TABLE_MAX_SIZE
 #define PACKET_CORRECTION_MAX_SIZE PACKET_TABLE_MAX_SIZE
+#define PACKET_SPECIFIC_PARAMETERS_ARRAY_MAX_SIZE 224
 
 #define DRAG_MAX_POINTS 3072
 #define DRAG_POINTS_DISTANCE 20000
+
+#define SPECIFIC_PARAMETERS_ARRAY_MAX_ITEMS 4
+#define SPECIFIC_PARAMETERS_ARRAY_POINTS 1024
 
 #define OFFSETOF(TYPE, ELEMENT) ((size_t)&(((TYPE *)0)->ELEMENT))
 #define ITEMSOF(ARRAY) (sizeof((ARRAY)) / sizeof((ARRAY)[0]))
@@ -55,6 +59,12 @@
 #define ITCM_FUNC __attribute__((section(".itcm_func")))
 #define IS_DEBUGGER_ATTACHED() ((DBGMCU->CR & 0x07) > 0)
 #define BREAKPOINT(x) __BKPT((x))
+
+typedef union {
+      uint8_t b[4];
+      uint32_t u;
+      float f;
+} uDword;
 
 #if __CORTEX_M == (7)
 STATIC_INLINE void CacheInvalidate(void * buffer, uint32_t size)
