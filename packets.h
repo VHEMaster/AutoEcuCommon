@@ -377,7 +377,65 @@ typedef struct
   uDword Parameters[PACKET_SPECIFIC_PARAMETERS_ARRAY_MAX_SIZE];
 }PACKET_DEFINE(PK_SpecificParameterArrayResponse, 46);
 
+typedef struct
+{
+  PACKET_HEADER;
+  uint32_t size;
+}PACKET_DEFINE(PK_FlashBeginRequest, 47);
 
+typedef struct
+{
+  PACKET_HEADER;
+  uint32_t ErrorCode;
+  uint32_t size;
+}PACKET_DEFINE(PK_FlashBeginResponse, 48);
+
+typedef struct
+{
+  PACKET_HEADER;
+  uint32_t offset;
+  uint32_t size;
+}PACKET_DEFINE(PK_FlashMemoryRequest, 49);
+
+typedef struct
+{
+  PACKET_HEADER;
+  uint32_t ErrorCode;
+  uint32_t offset;
+  uint32_t size;
+  uint8_t data[PACKET_TABLE_MAX_SIZE];
+}PACKET_DEFINE(PK_FlashMemoryData, 50);
+
+typedef struct
+{
+  PACKET_HEADER;
+  uint32_t ErrorCode;
+  uint32_t offset;
+  uint32_t size;
+}PACKET_DEFINE(PK_FlashMemoryAcknowledge, 51);
+
+typedef struct
+{
+  PACKET_HEADER;
+}PACKET_DEFINE(PK_FlashFinishRequest, 52);
+
+typedef struct
+{
+  PACKET_HEADER;
+  uint32_t ErrorCode;
+  uint32_t crc;
+  uint32_t size;
+}PACKET_DEFINE(PK_FlashFinishResponse, 53);
+
+typedef struct
+{
+  PACKET_HEADER;
+}PACKET_DEFINE(PK_ResetRequest, 54);
+
+typedef struct
+{
+  PACKET_HEADER;
+}PACKET_DEFINE(PK_ResetResponse, 55);
 
 int16_t PK_Copy(void * dest, void * source);
 
@@ -387,7 +445,7 @@ int16_t PK_Copy(void * dest, void * source);
 
 void PK_SenderInit(void);
 void PK_SenderLoop(void);
-void PK_SendCommand(eTransChannels xDest, void *buffer, uint32_t size);
+void PK_SendCommand(sGetterHandle *xHandle, eTransChannels xDest, void *buffer, uint32_t size);
 void PK_Sender_RegisterDestination(eTransChannels xDest,
     uint8_t *xQueueBuffer, uint32_t xQueueBufferSize,
     uint8_t *xSendingBuffer, uint32_t xSendingBufferSize);

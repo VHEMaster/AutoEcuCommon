@@ -52,10 +52,21 @@ PACKET_C(PK_SpecificParameterArrayConfigureResponse);
 PACKET_C(PK_SpecificParameterArrayRequest);
 PACKET_C(PK_SpecificParameterArrayResponse);
 
+PACKET_C(PK_FlashBeginRequest);
+PACKET_C(PK_FlashBeginResponse);
+PACKET_C(PK_FlashMemoryRequest);
+PACKET_C(PK_FlashMemoryData);
+PACKET_C(PK_FlashMemoryAcknowledge);
+PACKET_C(PK_FlashFinishRequest);
+PACKET_C(PK_FlashFinishResponse);
+PACKET_C(PK_ResetRequest);
+PACKET_C(PK_ResetResponse);
+
 #define SENDERS_MAX_COUNT 4
 
 static uint32_t txDestsCount = 0;
 static eTransChannels txDests[SENDERS_MAX_COUNT] = {0};
+static sGetterHandle *txHandles[SENDERS_MAX_COUNT] = {NULL};
 
 uint32_t buffSendingQueueSize[SENDERS_MAX_COUNT] = {0};
 uint32_t buffSendingBufferSize[SENDERS_MAX_COUNT] = {0};
@@ -87,7 +98,7 @@ void PK_Sender_RegisterDestination(eTransChannels xDest,
   }
 }
 
-void PK_SendCommand(eTransChannels xDest, void *buffer, uint32_t size)
+void PK_SendCommand(sGetterHandle *xHandle, eTransChannels xDest, void *buffer, uint32_t size)
 {
   sProFIFO *fifo = NULL;
   if(size > 0) {
@@ -96,7 +107,8 @@ void PK_SendCommand(eTransChannels xDest, void *buffer, uint32_t size)
         if(txDests[i] == xDest) {
           fifo = &fifoSendingQueue[i];
           if(protGetAvail(fifo) > size) {
-        	  protPushSequence(fifo, (uint8_t *)buffer, size);
+            txHandles[i] = xHandle;
+            protPushSequence(fifo, (uint8_t *)buffer, size);
           }
           break;
         }
@@ -149,10 +161,12 @@ void PK_SenderLoop(void)
             }
           }
         } else {
-          status = xSender(txDests[i], buffSendingBuffer[i], sender_size[i]);
-          if(status != 0) {
-            sender_sending[i] = 0;
-            continue;
+          if(txHandles[i]) {
+            status = xSender(txHandles[i], txDests[i], buffSendingBuffer[i], sender_size[i]);
+            if(status != 0) {
+              sender_sending[i] = 0;
+              continue;
+            }
           }
         }
       } while(0);
