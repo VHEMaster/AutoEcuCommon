@@ -99,6 +99,7 @@ typedef enum {
   CheckEngineRichIdleMixture,
   CheckNoOilPressure,
   CheckNoBatteryCharge,
+  CheckBootLoaderMode,
 }eCheckDataErrorCode;
 
 extern const char * const gCheckDataErrorString[];
