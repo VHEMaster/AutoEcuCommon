@@ -107,5 +107,7 @@ const char * const gCheckDataErrorString[] = {
     "Engine: No Oil Pressure",
     "Engine: No Battery Charge",
 
+    "ECU: BootLoader Mode",
+
 };
 
