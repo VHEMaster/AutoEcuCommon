@@ -212,6 +212,10 @@ typedef struct {
     float idle_valve_to_massair_pid_i[TABLE_ROTATES_MAX];
     float idle_valve_to_massair_pid_d[TABLE_ROTATES_MAX];
 
+    float idle_valve_to_rpm_pid_p[TABLE_ROTATES_MAX];
+    float idle_valve_to_rpm_pid_i[TABLE_ROTATES_MAX];
+    float idle_valve_to_rpm_pid_d[TABLE_ROTATES_MAX];
+
     float idle_ign_to_rpm_pid_p[TABLE_ROTATES_MAX];
     float idle_ign_to_rpm_pid_i[TABLE_ROTATES_MAX];
     float idle_ign_to_rpm_pid_d[TABLE_ROTATES_MAX];
@@ -268,7 +272,7 @@ typedef struct {
     float idle_econ_delay[TABLE_TEMPERATURES_MAX];
     float start_econ_delay[TABLE_TEMPERATURES_MAX];
 
-    int32_t reserved[1068];
+    int32_t reserved[1020];
 }sEcuTable;
 
 typedef struct {
