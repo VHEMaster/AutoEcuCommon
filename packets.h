@@ -430,11 +430,14 @@ typedef struct
 typedef struct
 {
   PACKET_HEADER;
+  uint32_t mode;
 }PACKET_DEFINE(PK_ResetRequest, 54);
 
 typedef struct
 {
   PACKET_HEADER;
+  uint32_t ErrorCode;
+  uint32_t mode;
 }PACKET_DEFINE(PK_ResetResponse, 55);
 
 int16_t PK_Copy(void * dest, void * source);
