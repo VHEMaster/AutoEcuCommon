@@ -96,7 +96,7 @@ void PK_SendCommand(eTransChannels xDest, void *buffer, uint32_t size)
         if(txDests[i] == xDest) {
           fifo = &fifoSendingQueue[i];
           if(protGetAvail(fifo) > size) {
-        	  protPushSequence(fifo, (uint8_t *)buffer, size);
+            protPushSequence(fifo, (uint8_t *)buffer, size);
           }
           break;
         }
@@ -112,8 +112,8 @@ int16_t PK_Copy(void * dest, void * source)
   if(!dest || !source) return -1;
   uint8_t * dest_data = (uint8_t*)dest;
   uint8_t * source_data = (uint8_t*)source;
-  int16_t length = dest_data[2] | (dest_data[3] << 8);
-  if(memcmp(dest_data, source_data, 4) != 0 || length == 0 || length > MAX_PACK_LEN) return -2;
+  int16_t length = source_data[2] | (source_data[3] << 8);
+  if(memcmp(dest_data, source_data, 2) != 0 || length == 0 || length > MAX_PACK_LEN) return -2;
   memcpy(dest, source, length);
   return length;
 }
