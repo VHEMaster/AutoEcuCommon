@@ -64,6 +64,12 @@ typedef enum {
   OutputDiagShortToGnd = 3
 }eOutputDiagnosticStatus;
 
+typedef enum {
+  PhasedModeDisabled = 0,
+  PhasedModeWithSensor,
+  PhasedModeWithoutSensor,
+}ePhasedMode;
+
 typedef struct {
   struct {
     union {
@@ -338,7 +344,7 @@ typedef struct {
 
     int32_t useLambdaSensor;
     int32_t isLambdaForceEnabled;
-    int32_t useTSPS;
+    int32_t phasedMode;
     int32_t useKnockSensor;
     int32_t performAdaptation;
     int32_t isSingleCoil;
