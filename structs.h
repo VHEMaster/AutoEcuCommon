@@ -255,8 +255,8 @@ typedef struct {
     float start_filling_time[TABLE_TEMPERATURES_MAX];
     int32_t start_large_count;
 
-    int32_t idle_speeds_shift_count;
-    float idle_rpm_shift_speeds[TABLE_SPEEDS_MAX];
+    int32_t speeds_count;
+    float speeds[TABLE_SPEEDS_MAX];
     float idle_rpm_shift[TABLE_SPEEDS_MAX];
 
     float knock_ign_corr_max;
@@ -278,7 +278,13 @@ typedef struct {
     float idle_econ_delay[TABLE_TEMPERATURES_MAX];
     float start_econ_delay[TABLE_TEMPERATURES_MAX];
 
-    int32_t reserved[1020];
+    float fan_advance_control_low;
+    float fan_advance_control_mid;
+    float fan_advance_control_high;
+
+    float fan_advance_control[TABLE_TEMPERATURES_MAX][TABLE_SPEEDS_MAX];
+
+    int32_t reserved[761];
 }sEcuTable;
 
 typedef struct {
