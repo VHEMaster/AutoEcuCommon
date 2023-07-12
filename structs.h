@@ -283,8 +283,9 @@ typedef struct {
     float fan_advance_control_high;
 
     float fan_advance_control[TABLE_TEMPERATURES_MAX][TABLE_SPEEDS_MAX];
+    float idle_valve_econ_position[TABLE_ROTATES_MAX];
 
-    int32_t reserved[761];
+    int32_t reserved[745];
 }sEcuTable;
 
 typedef struct {
