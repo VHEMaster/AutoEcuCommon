@@ -489,6 +489,17 @@ typedef struct {
 }sParameters;
 
 typedef struct {
+    float RPM;
+    float AirTemp;
+    float ManifoldAirPressure;
+    float AirDensity;
+    float ThrottlePosition;
+    float FuelRatio;
+    float WishFuelRatio;
+    float EngineTemp;
+}sLearnParameters;
+
+typedef struct {
     float IgnitionAdvance;
     float InjectionPhase;
     float IgnitionOctane;
