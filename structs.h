@@ -381,8 +381,9 @@ typedef struct {
 
     int32_t knockIntegratorTime;
     int32_t performIdleAdaptation;
+    float learn_cycles_delay_mult;
 
-    int32_t Reserved32[978];
+    int32_t Reserved32[977];
 }sEcuParams;
 
 typedef struct {
