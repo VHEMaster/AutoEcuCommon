@@ -413,6 +413,7 @@ typedef struct {
     int32_t KnockCountCy[ECU_CYLINDERS_COUNT];
     float AirTemp;
     float EngineTemp;
+    float CalculatedAirTemp;
     float ManifoldAirPressure;
     float ThrottlePosition;
     float ReferenceVoltage;
