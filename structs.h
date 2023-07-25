@@ -435,7 +435,7 @@ typedef struct {
     float CyclicAirFlow;
     float EffectiveVolume;
     float AirDensity;
-    float RelativeFilling;
+    float EngineLoad;
     float WishFuelRatio;
     float IdleValvePosition;
     float IdleRegThrRPM;
