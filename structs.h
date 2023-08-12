@@ -439,6 +439,8 @@ typedef struct {
     float EffectiveVolume;
     float AirDensity;
     float EngineLoad;
+    float EstimatedPower;
+    float EstimatedTorque;
     float WishFuelRatio;
     float IdleValvePosition;
     float IdleRegThrRPM;
