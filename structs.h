@@ -382,7 +382,13 @@ typedef struct {
     float air_temp_corr_koff_min;
     float air_temp_corr_koff_max;
 
-    int32_t Reserved32[975];
+    float tps_voltage_low;
+    float tps_voltage_high;
+
+    float map_pressure_gain;
+    float map_pressure_offset;
+
+    int32_t Reserved32[971];
 }sEcuParams;
 
 typedef struct {
