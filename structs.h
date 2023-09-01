@@ -152,7 +152,7 @@ typedef struct {
     int32_t RSVD1;
     int32_t RSVD2;
     int32_t RSVD3;
-    float RSVD4[16];
+    float filling_select_koff_tps[TABLE_ROTATES_MAX];
     float RSVD5[16];
     float RSVD6[256];
 
