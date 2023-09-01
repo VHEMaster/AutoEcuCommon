@@ -370,7 +370,7 @@ typedef struct {
     float shiftAdvance;
     float shiftMixture;
 
-    float res1;
+    int32_t useIdleValve;
     float res2;
 
     int32_t useShortTermCorr;
