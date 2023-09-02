@@ -149,8 +149,8 @@ typedef struct {
     float filling_gbc_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
     float filling_gbc_tps[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
 
-    int32_t RSVD1;
-    int32_t RSVD2;
+    int32_t idle_valve_pos_min;
+    int32_t idle_valve_pos_max;
     int32_t RSVD3;
     float filling_select_koff_tps[TABLE_ROTATES_MAX];
     float RSVD5[16];
