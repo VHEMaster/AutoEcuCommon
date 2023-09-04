@@ -233,11 +233,11 @@ typedef struct {
     float idle_ign_deviation_max;
     float idle_ign_deviation_min;
 
-    float idle_ign_fan_high_corr;
     float idle_ign_fan_low_corr;
+    float idle_ign_fan_high_corr;
 
-    float idle_air_fan_high_corr;
     float idle_air_fan_low_corr;
+    float idle_air_fan_high_corr;
 
     float warmup_mixtures[TABLE_TEMPERATURES_MAX];
     float warmup_mix_koffs[TABLE_TEMPERATURES_MAX];
