@@ -118,13 +118,13 @@ typedef struct {
     eInjChannel inj_channel;
 
     float injector_performance;
-    int32_t is_fuel_pressure_const;
+    int32_t RSVD1;
     int32_t is_fuel_phase_by_end;
     int32_t enrichment_ph_async_enabled;
     int32_t enrichment_ph_sync_enabled;
     int32_t enrichment_pp_async_enabled;
     int32_t enrichment_pp_sync_enabled;
-    float fuel_pressure;
+    float RSVD2;
     float fuel_mass_per_cc;
     float fuel_afr;
 
