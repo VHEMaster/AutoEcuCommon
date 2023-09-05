@@ -505,6 +505,7 @@ typedef struct {
     float FuelRatio;
     float WishFuelRatio;
     float EngineTemp;
+    uint32_t Timestamp;
 }sLearnParameters;
 
 typedef struct {
