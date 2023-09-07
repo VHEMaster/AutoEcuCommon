@@ -499,12 +499,10 @@ typedef struct {
 
 typedef struct {
     float RPM;
-    float AirTemp;
     float ManifoldAirPressure;
     float ThrottlePosition;
     float FuelRatio;
     float WishFuelRatio;
-    float EngineTemp;
     uint32_t Timestamp;
 }sLearnParameters;
 
