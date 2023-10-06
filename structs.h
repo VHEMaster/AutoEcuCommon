@@ -289,18 +289,6 @@ typedef struct {
 }sEcuTable;
 
 typedef struct {
-    int8_t ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    int8_t filling_gbc_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
-    int8_t filling_gbc_tps[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
-    int8_t idle_valve_position[TABLE_TEMPERATURES_MAX];
-    int8_t knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_MAX];
-    int8_t knock_detonation_counter[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    int8_t RSVD1[256];
-    float long_term_correction;
-    float idle_correction;
-}sEcuCorrectionsBackup;
-
-typedef struct {
     float ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
     float filling_gbc_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
     float filling_gbc_tps[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
@@ -317,14 +305,6 @@ typedef struct {
     float long_term_correction;
     float idle_correction;
 }sEcuCorrections;
-
-typedef struct {
-    float progress_ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    float progress_filling_gbc_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
-    float progress_filling_gbc_tps[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
-    float progress_idle_valve_position[TABLE_TEMPERATURES_MAX];
-    float progress_knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_MAX];
-}sEcuCorrectionsProgress;
 
 typedef struct {
     float engineVolume;
