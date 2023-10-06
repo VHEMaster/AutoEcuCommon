@@ -151,10 +151,8 @@ typedef struct {
 
     int32_t idle_valve_pos_min;
     int32_t idle_valve_pos_max;
-    int32_t RSVD3;
     float filling_select_koff_tps[TABLE_ROTATES_MAX];
-    float RSVD5[16];
-    float RSVD6[256];
+
 
     int32_t enrichment_load_type;
     float enrichment_load_dead_band;
@@ -286,7 +284,7 @@ typedef struct {
     float fan_advance_control[TABLE_TEMPERATURES_MAX][TABLE_SPEEDS_MAX];
     float idle_valve_econ_position[TABLE_ROTATES_MAX];
 
-    int32_t reserved[2281];
+    int32_t reserved[2554];
 }sEcuTable;
 
 typedef struct {
@@ -295,7 +293,7 @@ typedef struct {
     float filling_gbc_tps[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
     float idle_valve_position[TABLE_TEMPERATURES_MAX];
     float knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_MAX];
-    float knock_cy_ignition[ECU_CYLINDERS_COUNT][TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
+    float ignition_corr_cy[ECU_CYLINDERS_COUNT][TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
     float knock_detonation_counter[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
     uint8_t progress_ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
     uint8_t progress_filling_gbc_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
