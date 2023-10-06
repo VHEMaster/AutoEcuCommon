@@ -118,13 +118,11 @@ typedef struct {
     eInjChannel inj_channel;
 
     float injector_performance;
-    int32_t RSVD1;
     int32_t is_fuel_phase_by_end;
     int32_t enrichment_ph_async_enabled;
     int32_t enrichment_ph_sync_enabled;
     int32_t enrichment_pp_async_enabled;
     int32_t enrichment_pp_sync_enabled;
-    float RSVD2;
     float fuel_mass_per_cc;
     float fuel_afr;
 
@@ -284,7 +282,7 @@ typedef struct {
     float fan_advance_control[TABLE_TEMPERATURES_MAX][TABLE_SPEEDS_MAX];
     float idle_valve_econ_position[TABLE_ROTATES_MAX];
 
-    int32_t reserved[2554];
+    int32_t reserved[2556];
 }sEcuTable;
 
 typedef struct {
