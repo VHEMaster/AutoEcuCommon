@@ -184,6 +184,7 @@ typedef struct {
     float fillings[TABLE_FILLING_MAX];
 
     float ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
+    float ignition_corr_cy[ECU_CYLINDERS_COUNT][TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
     float fuel_mixtures[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
     float injection_phase[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
 
@@ -285,7 +286,7 @@ typedef struct {
     float fan_advance_control[TABLE_TEMPERATURES_MAX][TABLE_SPEEDS_MAX];
     float idle_valve_econ_position[TABLE_ROTATES_MAX];
 
-    int32_t reserved[745];
+    int32_t reserved[2281];
 }sEcuTable;
 
 typedef struct {
