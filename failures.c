@@ -109,5 +109,10 @@ const char * const gCheckDataErrorString[] = {
 
     "ECU: BootLoader Mode",
 
+    "Knock: Detonation Cy1",
+    "Knock: Detonation Cy2",
+    "Knock: Detonation Cy3",
+    "Knock: Detonation Cy4",
+
 };
 
