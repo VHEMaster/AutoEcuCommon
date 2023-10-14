@@ -392,6 +392,7 @@ typedef struct {
     float KnockAdvance;
     int32_t KnockCount;
     int32_t KnockCountCy[ECU_CYLINDERS_COUNT];
+    float KnockSaturation;
     float AirTemp;
     float EngineTemp;
     float CalculatedAirTemp;
@@ -404,7 +405,6 @@ typedef struct {
     float LambdaValue;
     float LambdaTemperature;
     float LambdaHeaterVoltage;
-    float LambdaTemperatureVoltage;
     float ShortTermCorrection;
     float LongTermCorrection;
     float IdleCorrection;
@@ -414,11 +414,9 @@ typedef struct {
     int32_t IdleEconFlag;
     float RPM;
     float Speed;
-    float Acceleration;
     float MassAirFlow;
     float CyclicAirFlow;
     float EffectiveVolume;
-    float AirDensity;
     float EngineLoad;
     float EstimatedPower;
     float EstimatedTorque;
