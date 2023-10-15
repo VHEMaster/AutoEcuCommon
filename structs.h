@@ -305,6 +305,14 @@ typedef struct {
 }sEcuCorrections;
 
 typedef struct {
+    float progress_ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
+    float progress_filling_gbc_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
+    float progress_filling_gbc_tps[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
+    float progress_idle_valve_position[TABLE_TEMPERATURES_MAX];
+    float progress_knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_MAX];
+}sEcuCorrectionsProgress;
+
+typedef struct {
     float engineVolume;
 
     int32_t isForceTable;
