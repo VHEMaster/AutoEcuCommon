@@ -56,7 +56,7 @@ const char * const gCheckDataErrorString[] = {
     "FuelPump: OpenCircuit",
     "FuelPump: ShortToBatOrOverheat",
     "FuelPump: ShortToGND",
-    "Outputs1: Communication failure",
+    "Outputs1: CommFailure",
 
     "OutIgn: OpenCircuit",
     "OutIgn: ShortToBatOrOverheat",
@@ -70,14 +70,14 @@ const char * const gCheckDataErrorString[] = {
     "FanRelay: OpenCircuit",
     "FanRelay: ShortToBatOrOverheat",
     "FanRelay: ShortToGND",
-    "Outputs2: Communication failure",
+    "Outputs2: CommFailure",
 
     "IdleValve: Failure",
     "IdleValve: Driver failure",
     "Injection: Fuel underflow",
     "ADC: Communication Failure",
 
-    "Lambda: Communication failure",
+    "Lambda: CommFailure",
     "Lambda: VM ShortToBat",
     "Lambda: VM LowBattery",
     "Lambda: VM ShortToGnd",
@@ -90,14 +90,14 @@ const char * const gCheckDataErrorString[] = {
     "Lambda: DIAHGD ShortToBat",
     "Lambda: DIAHGD OpenCircuit",
     "Lambda: DIAHGD ShortToGnd",
-    "Lambda: Temperature failure",
+    "Lambda: Temp.failure",
     "Lambda: Heater failure",
 
-    "Knock: Detonation Found",
-    "Knock: Low Noise Level",
+    "Knock: Detonation",
+    "Knock: Low Noise",
 
-    "TSPS: Phase Desynchronized",
-    "CPU: HardFault Exception",
+    "TSPS: Phase Desynch",
+    "CPU: HardFault",
     "Sensor: MAP/TPS Mismatch",
     "Sensor: Lean Mixture",
     "Sensor: Rich Mixture",
@@ -109,10 +109,10 @@ const char * const gCheckDataErrorString[] = {
 
     "ECU: BootLoader Mode",
 
-    "Knock: Detonation Cy1",
-    "Knock: Detonation Cy2",
-    "Knock: Detonation Cy3",
-    "Knock: Detonation Cy4",
+    "Knock: Cylinder 1",
+    "Knock: Cylinder 2",
+    "Knock: Cylinder 3",
+    "Knock: Cylinder 4"
 
 };
 
