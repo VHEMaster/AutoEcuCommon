@@ -113,6 +113,27 @@ typedef struct {
 }sOutputDiagnostic;
 
 typedef struct {
+  struct {
+    union {
+      struct {
+        eOutputDiagnosticStatus Out1 : 2;
+        eOutputDiagnosticStatus Out2 : 2;
+        eOutputDiagnosticStatus Out3 : 2;
+        eOutputDiagnosticStatus Out4 : 2;
+      }Data;
+      uint8_t Byte;
+    }Diagnostic;
+    HAL_StatusTypeDef Availability;
+  }Outs;
+  struct {
+    union {
+      uint8_t Byte;
+    }Diagnostic;
+    HAL_StatusTypeDef Availability;
+  }Motor;
+}sEtcOutputDiagnostic;
+
+typedef struct {
     char name[TABLE_STRING_MAX];
 
     eInjChannel inj_channel;
