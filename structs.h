@@ -453,7 +453,32 @@ typedef struct {
     int16_t PidP;
     int16_t PidI;
     int16_t PidD;
+    uint16_t TimPsc;
 }sEtcConfig;
+
+typedef struct {
+    uint16_t AdcTps1;
+    uint16_t AdcTps2;
+    uint16_t AdcPedal1;
+    uint16_t AdcPedal2;
+    uint16_t AdcReferenceVoltage;
+    uint16_t AdcPowerVoltage;
+    uint16_t Tps1;
+    uint16_t Tps2;
+    uint16_t Pedal1;
+    uint16_t Pedal2;
+    uint16_t ThrottlePosition;
+    uint16_t DefaultPosition;
+    uint16_t TargetPosition;
+    uint16_t PedalPosition;
+    uint8_t StandaloneMode;
+    HAL_StatusTypeDef TpsError : 2;
+    HAL_StatusTypeDef PedalError : 2;
+    HAL_StatusTypeDef MotorError : 2;
+    HAL_StatusTypeDef CommError : 2;
+    uint8_t OutsDiagByte;
+    uint8_t MotorDiagByte;
+}sEtcParametersInt;
 
 typedef struct {
     char CurrentTableName[TABLE_STRING_MAX];
