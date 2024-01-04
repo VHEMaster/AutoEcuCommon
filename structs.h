@@ -65,6 +65,36 @@ typedef enum {
 }eOutputDiagnosticStatus;
 
 typedef enum {
+  MotorTemperatureNormal = 0,
+  MotorTemperaturePrewarn = 1,
+  MotorTemperatureWarning = 2,
+  MotorTemperatureShutdown = 3
+}eMotorTemperatureStatus;
+
+typedef enum {
+  MotorChopperLimitIL00 = 0,
+  MotorChopperLimitIL01 = 1,
+  MotorChopperLimitIL10 = 2,
+  MotorChopperLimitIL11 = 3,
+}eMotorChopperCurrentLimit;
+
+typedef enum {
+  eMotorChopperTimeOff00 = 0,
+  eMotorChopperTimeOff01 = 1,
+  eMotorChopperTimeOff10 = 2,
+  eMotorChopperTimeOff11 = 3,
+}eMotorChopperOffTime;
+
+typedef struct {
+    eMotorChopperCurrentLimit ChopperCurrentLimit : 2;
+    uint8_t PwmOperationMode : 1;
+    eMotorChopperOffTime ChopperOffTime : 2;
+    uint8_t NotUsed : 1;
+    uint8_t OVLO : 1;
+    uint8_t StatusReset : 1;
+}sMotorConfig;
+
+typedef enum {
   PhasedModeDisabled = 0,
   PhasedModeWithSensor,
   PhasedModeWithoutSensor,
@@ -128,6 +158,15 @@ typedef struct {
   struct {
     union {
       uint8_t Byte;
+      struct {
+        uint8_t ErrorFlag : 1;
+        eMotorTemperatureStatus Temperature : 2;
+        uint8_t OpenLoad : 1;
+        uint8_t ShortToGND : 1;
+        uint8_t ShortToSupply : 1;
+        uint8_t AlwaysHigh : 1;
+        uint8_t SupplyFailure : 1;
+      }Data;
     }Diagnostic;
     HAL_StatusTypeDef Availability;
   }Motor;
