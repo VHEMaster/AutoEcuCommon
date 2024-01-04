@@ -399,6 +399,21 @@ typedef struct {
 }sEcuParams;
 
 typedef struct {
+    uint16_t Tps1Min;
+    uint16_t Tps1Mid;
+    uint16_t Tps1Max;
+    uint16_t Tps1Limit;
+    uint16_t Tps2Min;
+    uint16_t Tps2Mid;
+    uint16_t Tps2Max;
+    uint16_t Tps2Limit;
+    uint16_t Pedal1Min;
+    uint16_t Pedal1Max;
+    uint16_t Pedal2Min;
+    uint16_t Pedal2Max;
+}sEtcConfig;
+
+typedef struct {
     char CurrentTableName[TABLE_STRING_MAX];
     int32_t SwitchPosition;
     int32_t CurrentTable;
