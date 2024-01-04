@@ -450,6 +450,9 @@ typedef struct {
     uint16_t Pedal1Max;
     uint16_t Pedal2Min;
     uint16_t Pedal2Max;
+    int16_t PidP;
+    int16_t PidI;
+    int16_t PidD;
 }sEtcConfig;
 
 typedef struct {
