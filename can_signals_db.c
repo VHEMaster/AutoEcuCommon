@@ -824,7 +824,7 @@ sCanSignal g_can_signal_id011_ETC_PowerVoltage = {
 };
 
 
-sCanMessage g_can_message_id012_ETC = { 0x011, 8 }; // ETC Values
+sCanMessage g_can_message_id012_ETC = { 0x012, 8 }; // ETC Values
 
 sCanSignal g_can_signal_id012_ETC_ThrottlePosition = {
     .SignalType = CAN_SIGNAL_TYPE_FLOAT,
@@ -923,7 +923,7 @@ sCanSignal g_can_signal_id012_ETC_StandaloneFlag = {
 };
 
 
-sCanMessage g_can_message_id013_ETC = { 0x012, 4 }; // ETC I/O DTC
+sCanMessage g_can_message_id013_ETC = { 0x013, 4 }; // ETC I/O DTC
 
 sCanSignal g_can_signal_id013_ETC_InCruizeStart = {
     .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,

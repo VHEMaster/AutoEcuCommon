@@ -471,7 +471,10 @@ typedef struct {
     uint16_t DefaultPosition;
     uint16_t TargetPosition;
     uint16_t PedalPosition;
-    uint8_t StandaloneMode;
+    uint8_t StandaloneMode : 1;
+    uint8_t MotorActive : 1;
+    uint8_t FullCloseRequest : 1;
+    uint8_t AdaptationProcess : 1;
     HAL_StatusTypeDef TpsError : 2;
     HAL_StatusTypeDef PedalError : 2;
     HAL_StatusTypeDef MotorError : 2;
