@@ -439,11 +439,9 @@ typedef struct {
 
 typedef struct {
     uint16_t Tps1Min;
-    uint16_t Tps1Mid;
     uint16_t Tps1Max;
     uint16_t Tps1Limit;
     uint16_t Tps2Min;
-    uint16_t Tps2Mid;
     uint16_t Tps2Max;
     uint16_t Tps2Limit;
     uint16_t Pedal1Min;
@@ -461,6 +459,8 @@ typedef struct {
     uint16_t AdcTps2;
     uint16_t AdcPedal1;
     uint16_t AdcPedal2;
+    uint16_t AdcRsvd5;
+    uint16_t AdcRsvd6;
     uint16_t AdcReferenceVoltage;
     uint16_t AdcPowerVoltage;
     uint16_t Tps1;
