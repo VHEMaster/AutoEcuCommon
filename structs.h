@@ -484,6 +484,35 @@ typedef struct {
 }sEtcParametersInt;
 
 typedef struct {
+    float AdcTps1;
+    float AdcTps2;
+    float AdcPedal1;
+    float AdcPedal2;
+    float AdcRsvd5;
+    float AdcRsvd6;
+    float AdcReferenceVoltage;
+    float AdcPowerVoltage;
+    float Tps1;
+    float Tps2;
+    float Pedal1;
+    float Pedal2;
+    float ThrottlePosition;
+    float DefaultPosition;
+    float TargetPosition;
+    float PedalPosition;
+    uint8_t StandaloneMode : 1;
+    uint8_t MotorActive : 1;
+    uint8_t FullCloseRequest : 1;
+    uint8_t AdaptationProcess : 1;
+    HAL_StatusTypeDef TpsError : 2;
+    HAL_StatusTypeDef PedalError : 2;
+    HAL_StatusTypeDef MotorError : 2;
+    HAL_StatusTypeDef CommError : 2;
+    uint8_t OutsDiagByte;
+    uint8_t MotorDiagByte;
+}sEtcParameters;
+
+typedef struct {
     char CurrentTableName[TABLE_STRING_MAX];
     int32_t SwitchPosition;
     int32_t CurrentTable;
