@@ -699,7 +699,7 @@ sCanSignal g_can_signal_id029_ECU_CylinderInjectionBitmask = {
 
 sCanSignal g_can_signal_id029_ECU_PowerVoltage = {
     .SignalType = CAN_SIGNAL_TYPE_FLOAT,
-    .Gain = 0.06f,
+    .Gain = 0.08f,
     .Offset = 5,
     .StartBit = 24,
     .LengthBit = 8
@@ -752,3 +752,816 @@ sCanSignal g_can_signal_id029_ECU_InjectorChannel = {
     .StartBit = 41,
     .LengthBit = 3
 };
+
+
+sCanMessage g_can_message_id010_ETC = { 0x010, 8 }; // ETC ADC1
+
+sCanSignal g_can_signal_id010_ETC_Tps1 = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 9.155413e-5f,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 16
+};
+
+sCanSignal g_can_signal_id010_ETC_Tps2 = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 9.155413e-5f,
+    .Offset = 0,
+    .StartBit = 16,
+    .LengthBit = 16
+};
+
+sCanSignal g_can_signal_id010_ETC_Pedal1 = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 9.155413e-5f,
+    .Offset = 0,
+    .StartBit = 32,
+    .LengthBit = 16
+};
+
+sCanSignal g_can_signal_id010_ETC_Pedal2 = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 9.155413e-5f,
+    .Offset = 0,
+    .StartBit = 48,
+    .LengthBit = 16
+};
+
+
+sCanMessage g_can_message_id011_ETC = { 0x011, 8 }; // ETC ADC2
+
+sCanSignal g_can_signal_id011_ETC_Rsvd5 = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 9.155413e-5f,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 16
+};
+
+sCanSignal g_can_signal_id011_ETC_Rsvd6 = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 9.155413e-5f,
+    .Offset = 0,
+    .StartBit = 16,
+    .LengthBit = 16
+};
+
+sCanSignal g_can_signal_id011_ETC_ReferenceVoltage = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 9.155413e-5f,
+    .Offset = 0,
+    .StartBit = 32,
+    .LengthBit = 16
+};
+
+sCanSignal g_can_signal_id011_ETC_PowerVoltage = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.311284f,
+    .Offset = 0,
+    .StartBit = 48,
+    .LengthBit = 16
+};
+
+
+sCanMessage g_can_message_id012_ETC = { 0x011, 8 }; // ETC Values
+
+sCanSignal g_can_signal_id012_ETC_ThrottlePosition = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.01465f,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 13
+};
+
+sCanSignal g_can_signal_id012_ETC_TargetPosition = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.01465f,
+    .Offset = 0,
+    .StartBit = 13,
+    .LengthBit = 13
+};
+
+sCanSignal g_can_signal_id012_ETC_DefaultPosition = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.01465f,
+    .Offset = 0,
+    .StartBit = 26,
+    .LengthBit = 13
+};
+
+sCanSignal g_can_signal_id012_ETC_PedalPosition = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.01465f,
+    .Offset = 0,
+    .StartBit = 39,
+    .LengthBit = 13
+};
+
+sCanSignal g_can_signal_id012_ETC_Tps1ErrorFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 52,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id012_ETC_Tps2ErrorFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 53,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id012_ETC_Pedal1ErrorFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 54,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id012_ETC_Pedal2ErrorFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 55,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id012_ETC_TpsMismatchFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 56,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id012_ETC_PedalMismatchFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 57,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id012_ETC_MotorErrorFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 58,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id012_ETC_StandaloneFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 59,
+    .LengthBit = 1
+};
+
+
+sCanMessage g_can_message_id013_ETC = { 0x012, 4 }; // ETC I/O DTC
+
+sCanSignal g_can_signal_id013_ETC_InCruizeStart = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_InCruizeStop = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 1,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_InBrake = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 2,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_InRsvd4 = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 3,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_InRsvd5 = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 4,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_InRsvd6 = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 5,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_OutCruizeG = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 6,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_OutCruizeR = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 7,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_OutRsvd3 = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 8,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_OutRsvd4 = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 9,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_OutCruizeGState = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 10,
+    .LengthBit = 2
+};
+
+sCanSignal g_can_signal_id013_ETC_OutCruizeRState = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 12,
+    .LengthBit = 2
+};
+
+sCanSignal g_can_signal_id013_ETC_OutRsvd3State = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 14,
+    .LengthBit = 2
+};
+
+sCanSignal g_can_signal_id013_ETC_OutRsvd4State = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 16,
+    .LengthBit = 2
+};
+
+sCanSignal g_can_signal_id013_ETC_OutputsAvailability = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 27,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_MotorErrorFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 18,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_MotorTemperature = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 19,
+    .LengthBit = 2
+};
+
+sCanSignal g_can_signal_id013_ETC_MotorOpenLoad = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 21,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_MotorShortToGND = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 22,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_MotorShortToSupply = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 23,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_MotorSupplyFailure = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 24,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_MotorAlwaysHigh = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 25,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_MotorAvailability = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 26,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_AdcErrorFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 27,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_CommErrorFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 28,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_CanInitFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 29,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_CanTestFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 30,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id013_ETC_AdaptationCompletedFlag = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 31,
+    .LengthBit = 1
+};
+
+
+sCanMessage g_can_message_id018_ETC_ECU = { 0x018, 2 }; // ETC->ECU config apply acknowledge
+
+sCanSignal g_can_signal_id018_ETC_ECU_ConfigApplyIdAck = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 11
+};
+
+
+sCanMessage g_can_message_id019_ETC_ECU = { 0x019, 6 }; // ETC->ECU config response 1
+
+sCanSignal g_can_signal_id019_ETC_ECU_Tps1Min = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id019_ETC_ECU_Tps1Max = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 12,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id019_ETC_ECU_Tps1Limit = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 24,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id019_ETC_ECU_Rsvd = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 36,
+    .LengthBit = 12
+};
+
+
+sCanMessage g_can_message_id01A_ETC_ECU = { 0x01A, 6 }; // ETC->ECU config response 2
+
+sCanSignal g_can_signal_id01A_ETC_ECU_Tps2Min = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id01A_ETC_ECU_Tps2Max = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 12,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id01A_ETC_ECU_Tps2Limit = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 24,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id01A_ETC_ECU_Rsvd = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 36,
+    .LengthBit = 12
+};
+
+
+sCanMessage g_can_message_id01B_ETC_ECU = { 0x01B, 6 }; // ETC->ECU config response 3
+
+sCanSignal g_can_signal_id01B_ETC_ECU_Pedal1Min = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id01B_ETC_ECU_Pedal1Max = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 12,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id01B_ETC_ECU_Pedal2Min = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 24,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id01B_ETC_ECU_Pedal2Max = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 36,
+    .LengthBit = 12
+};
+
+
+sCanMessage g_can_message_id01C_ETC_ECU = { 0x01C, 6 }; // ETC->ECU config response 4
+
+sCanSignal g_can_signal_id01C_ETC_ECU_PidP = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0001f,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 14
+};
+
+sCanSignal g_can_signal_id01C_ETC_ECU_PidI = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0001f,
+    .Offset = 0,
+    .StartBit = 14,
+    .LengthBit = 14
+};
+
+sCanSignal g_can_signal_id01C_ETC_ECU_PidD = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0001f,
+    .Offset = 0,
+    .StartBit = 28,
+    .LengthBit = 14
+};
+
+sCanSignal g_can_signal_id01C_ETC_ECU_TimPsc = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 42,
+    .LengthBit = 8
+};
+
+sCanSignal g_can_signal_id01C_ETC_ECU_Rsvd = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 50,
+    .LengthBit = 14
+};
+
+
+sCanMessage g_can_message_id080_ECU_ETC = { 0x080, 3 }; // ECU->ETC runtime request
+
+sCanSignal g_can_signal_id080_ECU_ETC_StandaloneMode = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id080_ECU_ETC_MotorActive = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 1,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id080_ECU_ETC_TargetPosition = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.01221f,
+    .Offset = 0,
+    .StartBit = 2,
+    .LengthBit = 13
+};
+
+sCanSignal g_can_signal_id080_ECU_ETC_MotorErrorReset = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 15,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id080_ECU_ETC_MotorFullCloseRequest = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 16,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id080_ECU_ETC_AdaptationRequest = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 17,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id080_ECU_ETC_Rsvd1 = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 18,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id080_ECU_ETC_Rsvd2 = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 19,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id080_ECU_ETC_OutCruizeR = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 20,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id080_ECU_ETC_OutCruizeG = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 21,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id080_ECU_ETC_OutRsvd3 = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 22,
+    .LengthBit = 1
+};
+
+sCanSignal g_can_signal_id080_ECU_ETC_OutRsvd4 = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 23,
+    .LengthBit = 1
+};
+
+
+sCanMessage g_can_message_id088_ECU_ETC = { 0x088, 2 }; // ECU->ETC config data request
+
+sCanSignal g_can_signal_id088_ECU_ETC_ConfigIdRequest = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 11
+};
+
+sCanMessage g_can_message_id089_ECU_ETC = { 0x089, 6 }; // ECU->ETC config request 1
+
+sCanSignal g_can_signal_id089_ECU_ETC_Tps1Min = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id089_ECU_ETC_Tps1Max = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 12,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id089_ECU_ETC_Tps1Limit = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 24,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id089_ECU_ETC_Rsvd = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 36,
+    .LengthBit = 12
+};
+
+
+sCanMessage g_can_message_id08A_ECU_ETC = { 0x08A, 6 }; // ECU->ETC config request 2
+
+sCanSignal g_can_signal_id08A_ECU_ETC_Tps2Min = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id08A_ECU_ETC_Tps2Max = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 12,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id08A_ECU_ETC_Tps2Limit = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 24,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id08A_ECU_ETC_Rsvd = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 36,
+    .LengthBit = 12
+};
+
+
+sCanMessage g_can_message_id08B_ECU_ETC = { 0x08B, 6 }; // ECU->ETC config request 3
+
+sCanSignal g_can_signal_id08B_ECU_ETC_Pedal1Min = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id08B_ECU_ETC_Pedal1Max = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 12,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id08B_ECU_ETC_Pedal2Min = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 24,
+    .LengthBit = 12
+};
+
+sCanSignal g_can_signal_id08B_ECU_ETC_Pedal2Max = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0014652f,
+    .Offset = 0,
+    .StartBit = 36,
+    .LengthBit = 12
+};
+
+
+sCanMessage g_can_message_id08C_ECU_ETC = { 0x08C, 6 }; // ECU->ETC config request 4
+
+sCanSignal g_can_signal_id08C_ECU_ETC_PidP = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0001f,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 14
+};
+
+sCanSignal g_can_signal_id08C_ECU_ETC_PidI = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0001f,
+    .Offset = 0,
+    .StartBit = 14,
+    .LengthBit = 14
+};
+
+sCanSignal g_can_signal_id08C_ECU_ETC_PidD = {
+    .SignalType = CAN_SIGNAL_TYPE_FLOAT,
+    .Gain = 0.0001f,
+    .Offset = 0,
+    .StartBit = 28,
+    .LengthBit = 14
+};
+
+sCanSignal g_can_signal_id08C_ECU_ETC_TimPsc = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 42,
+    .LengthBit = 8
+};
+
+sCanSignal g_can_signal_id08C_ECU_ETC_Rsvd = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 50,
+    .LengthBit = 14
+};
+
