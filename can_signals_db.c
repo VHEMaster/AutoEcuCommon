@@ -862,7 +862,7 @@ sCanSignal g_can_signal_id012_ETC_Tps1ErrorFlag = {
     .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
     .Gain = 1,
     .Offset = 0,
-    .StartBit = 52,
+    .StartBit = 56,
     .LengthBit = 1
 };
 
@@ -870,7 +870,7 @@ sCanSignal g_can_signal_id012_ETC_Tps2ErrorFlag = {
     .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
     .Gain = 1,
     .Offset = 0,
-    .StartBit = 53,
+    .StartBit = 57,
     .LengthBit = 1
 };
 
@@ -878,7 +878,7 @@ sCanSignal g_can_signal_id012_ETC_Pedal1ErrorFlag = {
     .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
     .Gain = 1,
     .Offset = 0,
-    .StartBit = 54,
+    .StartBit = 58,
     .LengthBit = 1
 };
 
@@ -886,7 +886,7 @@ sCanSignal g_can_signal_id012_ETC_Pedal2ErrorFlag = {
     .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
     .Gain = 1,
     .Offset = 0,
-    .StartBit = 55,
+    .StartBit = 59,
     .LengthBit = 1
 };
 
@@ -894,7 +894,7 @@ sCanSignal g_can_signal_id012_ETC_TpsMismatchFlag = {
     .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
     .Gain = 1,
     .Offset = 0,
-    .StartBit = 56,
+    .StartBit = 60,
     .LengthBit = 1
 };
 
@@ -902,7 +902,7 @@ sCanSignal g_can_signal_id012_ETC_PedalMismatchFlag = {
     .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
     .Gain = 1,
     .Offset = 0,
-    .StartBit = 57,
+    .StartBit = 61,
     .LengthBit = 1
 };
 
@@ -910,7 +910,7 @@ sCanSignal g_can_signal_id012_ETC_MotorErrorFlag = {
     .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
     .Gain = 1,
     .Offset = 0,
-    .StartBit = 58,
+    .StartBit = 62,
     .LengthBit = 1
 };
 
@@ -918,7 +918,7 @@ sCanSignal g_can_signal_id012_ETC_StandaloneFlag = {
     .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
     .Gain = 1,
     .Offset = 0,
-    .StartBit = 59,
+    .StartBit = 63,
     .LengthBit = 1
 };
 
