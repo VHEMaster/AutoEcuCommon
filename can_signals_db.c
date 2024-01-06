@@ -817,7 +817,7 @@ sCanSignal g_can_signal_id011_ETC_ReferenceVoltage = {
 
 sCanSignal g_can_signal_id011_ETC_PowerVoltage = {
     .SignalType = CAN_SIGNAL_TYPE_FLOAT,
-    .Gain = 0.311284f,
+    .Gain = 3.11284e-4f,
     .Offset = 0,
     .StartBit = 48,
     .LengthBit = 16
