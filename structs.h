@@ -484,35 +484,6 @@ typedef struct {
 }sEtcParametersInt;
 
 typedef struct {
-    float AdcTps1;
-    float AdcTps2;
-    float AdcPedal1;
-    float AdcPedal2;
-    float AdcRsvd5;
-    float AdcRsvd6;
-    float AdcReferenceVoltage;
-    float AdcPowerVoltage;
-    float Tps1;
-    float Tps2;
-    float Pedal1;
-    float Pedal2;
-    float ThrottlePosition;
-    float DefaultPosition;
-    float TargetPosition;
-    float PedalPosition;
-    uint8_t StandaloneMode : 1;
-    uint8_t MotorActive : 1;
-    uint8_t FullCloseRequest : 1;
-    uint8_t AdaptationProcess : 1;
-    HAL_StatusTypeDef TpsError : 2;
-    HAL_StatusTypeDef PedalError : 2;
-    HAL_StatusTypeDef MotorError : 2;
-    HAL_StatusTypeDef CommError : 2;
-    uint8_t OutsDiagByte;
-    uint8_t MotorDiagByte;
-}sEtcParameters;
-
-typedef struct {
     char CurrentTableName[TABLE_STRING_MAX];
     int32_t SwitchPosition;
     int32_t CurrentTable;
@@ -528,6 +499,21 @@ typedef struct {
     float AdcLambdaUR;
     float AdcLambdaUA;
 
+    float AdcEtcTps1;
+    float AdcEtcTps2;
+    float AdcEtcPedal1;
+    float AdcEtcPedal2;
+    float AdcEtcRsvd5;
+    float AdcEtcRsvd6;
+    float AdcEtcReferenceVoltage;
+    float AdcEtcPowerVoltage;
+
+    float ThrottlePosition;
+    float PedalPosition;
+    float ThrottleDefaultPosition;
+    float ThrottleTargetPosition;
+    float WishThrottleTargetPosition;
+
     float KnockSensor;
     float KnockSensorFiltered;
     float KnockSensorDetonate;
@@ -540,7 +526,6 @@ typedef struct {
     float EngineTemp;
     float CalculatedAirTemp;
     float ManifoldAirPressure;
-    float ThrottlePosition;
     float ReferenceVoltage;
     float PowerVoltage;
     float FuelRatio;
@@ -611,6 +596,21 @@ typedef struct {
     int32_t StartAllowed;
     int32_t IsRunning;
     int32_t IsCheckEngine;
+
+    int32_t EtcMotorActiveFlag;
+    int32_t EtcStandaloneFlag;
+    int32_t EtcMotorFullCloseFlag;
+
+    int32_t EtcOutCruizeG;
+    int32_t EtcOutCruizeR;
+    int32_t EtcOutRsvd3;
+    int32_t EtcOutRsvd4;
+    int32_t EtcInCruizeStart;
+    int32_t EtcInCruizeStop;
+    int32_t EtcInBrake;
+    int32_t EtcInRsvd4;
+    int32_t EtcInRsvd5;
+    int32_t EtcInRsvd6;
 
     int32_t CylinderIgnitionBitmask;
     int32_t CylinderInjectionBitmask;
