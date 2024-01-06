@@ -852,7 +852,7 @@ sCanSignal g_can_signal_id012_ETC_DefaultPosition = {
 
 sCanSignal g_can_signal_id012_ETC_PedalPosition = {
     .SignalType = CAN_SIGNAL_TYPE_FLOAT,
-    .Gain = 0.01465f,
+    .Gain = 0.01221f,
     .Offset = 0,
     .StartBit = 39,
     .LengthBit = 13
