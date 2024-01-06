@@ -112,7 +112,23 @@ const char * const gCheckDataErrorString[] = {
     "Knock: Cylinder 1",
     "Knock: Cylinder 2",
     "Knock: Cylinder 3",
-    "Knock: Cylinder 4"
+    "Knock: Cylinder 4",
 
+    "ETC: Comm Error",
+    "ETC: Pedal1",
+    "ETC: Pedal2",
+    "ETC: Pedal Mismatch",
+    "ETC: TPS1",
+    "ETC: TPS2",
+    "ETC: TPS Mismatch",
+    "ETC: Adc Error",
+    "ETC: Internal Comm",
+    "ETC:Motor: Availability",
+    "ETC:Motor: OpenLoad",
+    "ETC:Motor: ShortToGND",
+    "ETC:Motor: ShortToSupply",
+    "ETC:Motor: Temperature",
+    "ETC:Motor: SupplyFailure",
+    "ETC:Motor: ErrorFlag",
+    "ETC:Motor: AlwaysHigh",
 };
-

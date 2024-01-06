@@ -104,6 +104,23 @@ typedef enum {
   CheckKnockDetonationCy2,
   CheckKnockDetonationCy3,
   CheckKnockDetonationCy4,
+  CheckEtcCommError,
+  CheckEtcPedal1,
+  CheckEtcPedal2,
+  CheckEtcPedalMismatch,
+  CheckEtcTps1,
+  CheckEtcTps2,
+  CheckEtcTpsMismatch,
+  CheckEtcAdcError,
+  CheckEtcInternalComm,
+  CheckEtcMotorAvailability,
+  CheckEtcMotorOpenLoad,
+  CheckEtcMotorShortToGND,
+  CheckEtcMotorShortToSupply,
+  CheckEtcMotorTemperature,
+  CheckEtcMotorSupplyFailure,
+  CheckEtcMotorErrorFlag,
+  CheckEtcMotorAlwaysHigh,
 }eCheckDataErrorCode;
 
 extern const char * const gCheckDataErrorString[];
