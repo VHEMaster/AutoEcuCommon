@@ -204,11 +204,18 @@ typedef struct {
     int32_t throttles_count;
     float throttles[TABLE_THROTTLES_MAX];
 
+    int32_t pedals_count;
+    float pedals[TABLE_PEDALS_MAX];
+
     float filling_gbc_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
     float filling_gbc_tps[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
+    float throttle_position[TABLE_PEDALS_MAX][TABLE_ROTATES_MAX];
+    float stop_throttle_position[TABLE_PEDALS_MAX];
 
     int32_t idle_valve_pos_min;
     int32_t idle_valve_pos_max;
+    float idle_throttle_pos_min;
+    float idle_throttle_pos_max;
     float filling_select_koff_tps[TABLE_ROTATES_MAX];
 
 
@@ -266,6 +273,7 @@ typedef struct {
     float idle_wish_ignition[TABLE_TEMPERATURES_MAX];
     float idle_wish_ignition_static[TABLE_ROTATES_MAX];
     float idle_valve_position[TABLE_TEMPERATURES_MAX];
+    float idle_throttle_position[TABLE_TEMPERATURES_MAX];
 
     float idle_rpm_pid_act_1[TABLE_TEMPERATURES_MAX];
     float idle_rpm_pid_act_2[TABLE_TEMPERATURES_MAX];
@@ -279,6 +287,14 @@ typedef struct {
     float idle_valve_to_rpm_pid_p[TABLE_ROTATES_MAX];
     float idle_valve_to_rpm_pid_i[TABLE_ROTATES_MAX];
     float idle_valve_to_rpm_pid_d[TABLE_ROTATES_MAX];
+
+    float idle_throttle_to_massair_pid_p[TABLE_ROTATES_MAX];
+    float idle_throttle_to_massair_pid_i[TABLE_ROTATES_MAX];
+    float idle_throttle_to_massair_pid_d[TABLE_ROTATES_MAX];
+
+    float idle_throttle_to_rpm_pid_p[TABLE_ROTATES_MAX];
+    float idle_throttle_to_rpm_pid_i[TABLE_ROTATES_MAX];
+    float idle_throttle_to_rpm_pid_d[TABLE_ROTATES_MAX];
 
     float idle_ign_to_rpm_pid_p[TABLE_ROTATES_MAX];
     float idle_ign_to_rpm_pid_i[TABLE_ROTATES_MAX];
@@ -305,6 +321,7 @@ typedef struct {
     float cold_start_idle_times[TABLE_TEMPERATURES_MAX];
     float start_injection_phase[TABLE_TEMPERATURES_MAX];
     float start_idle_valve_pos[TABLE_TEMPERATURES_MAX];
+    float start_throttle_position[TABLE_TEMPERATURES_MAX];
     float start_ignition[TABLE_TEMPERATURES_MAX];
     float start_tps_corrs[TABLE_THROTTLES_MAX];
     float start_async_filling[TABLE_TEMPERATURES_MAX];
@@ -342,8 +359,9 @@ typedef struct {
 
     float fan_advance_control[TABLE_TEMPERATURES_MAX][TABLE_SPEEDS_MAX];
     float idle_valve_econ_position[TABLE_ROTATES_MAX];
+    float idle_throttle_econ_position[TABLE_ROTATES_MAX];
 
-    int32_t reserved[1532];
+    int32_t reserved[1097];
 }sEcuTable;
 
 typedef struct {
@@ -417,6 +435,7 @@ typedef struct {
     float shiftMixture;
 
     int32_t useIdleValve;
+    int32_t useEtc;
     float res2;
 
     int32_t useShortTermCorr;
@@ -434,7 +453,7 @@ typedef struct {
     float map_pressure_gain;
     float map_pressure_offset;
 
-    int32_t Reserved32[971];
+    int32_t Reserved32[970];
 }sEcuParams;
 
 typedef struct {
@@ -636,6 +655,7 @@ typedef struct {
     float WishIdleValvePosition;
     float WishIdleIgnitionAdvance;
     float WishIdleMassAirFlow;
+    float WishThrottleTargetPosition;
     int32_t FanRelay;
     int32_t FanSwitch;
     int32_t FuelPumpRelay;
@@ -651,6 +671,7 @@ typedef struct {
       uint8_t WishIdleValvePosition;
       uint8_t WishIdleIgnitionAdvance;
       uint8_t WishIdleMassAirFlow;
+      uint8_t WishThrottleTargetPosition;
       uint8_t FanRelay;
       uint8_t FanSwitch;
       uint8_t FuelPumpRelay;
