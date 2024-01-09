@@ -209,7 +209,7 @@ typedef struct {
 
     float filling_gbc_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
     float filling_gbc_tps[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
-    float throttle_position[TABLE_PEDALS_MAX][TABLE_ROTATES_MAX];
+    float throttle_position[TABLE_ROTATES_MAX][TABLE_PEDALS_MAX];
     float stop_throttle_position[TABLE_PEDALS_MAX];
 
     int32_t idle_valve_pos_min;
