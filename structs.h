@@ -361,8 +361,10 @@ typedef struct {
     float idle_valve_econ_position[TABLE_ROTATES_MAX];
     float idle_throttle_econ_position[TABLE_ROTATES_MAX];
     float pedal_ignition_control[TABLE_ROTATES_MAX];
+    int32_t throttle_position_use_2d;
+    float throttle_position_2d[TABLE_PEDALS_MAX];
 
-    int32_t reserved[1081];
+    int32_t reserved[1064];
 }sEcuTable;
 
 typedef struct {
