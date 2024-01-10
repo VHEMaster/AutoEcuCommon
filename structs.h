@@ -363,8 +363,9 @@ typedef struct {
     float pedal_ignition_control[TABLE_ROTATES_MAX];
     int32_t throttle_position_use_1d;
     float throttle_position_1d[TABLE_PEDALS_MAX];
+    float throttle_startup_move_time[TABLE_TEMPERATURES_MAX];
 
-    int32_t reserved[1064];
+    int32_t reserved[1048];
 }sEcuTable;
 
 typedef struct {
