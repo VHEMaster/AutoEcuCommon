@@ -508,9 +508,6 @@ typedef struct {
 
 typedef struct {
     char CurrentTableName[TABLE_STRING_MAX];
-    int32_t SwitchPosition;
-    int32_t CurrentTable;
-    int32_t InjectorChannel;
 
     float AdcKnockVoltage;
     float AdcAirTemp;
@@ -542,8 +539,7 @@ typedef struct {
     float KnockSensorDetonate;
     float KnockZone;
     float KnockAdvance;
-    int32_t KnockCount;
-    int32_t KnockCountCy[ECU_CYLINDERS_COUNT];
+
     float KnockSaturation;
     float AirTemp;
     float EngineTemp;
@@ -560,9 +556,6 @@ typedef struct {
     float LongTermCorrection;
     float IdleCorrection;
 
-    int32_t IdleFlag;
-    int32_t IdleCorrFlag;
-    int32_t IdleEconFlag;
     float RPM;
     float Speed;
     float MassAirFlow;
@@ -600,43 +593,54 @@ typedef struct {
     float TspsRelativePosition;
     float IdleWishToRpmRelation;
 
-    int32_t LambdaValid;
+    uint16_t KnockCount;
+    uint16_t KnockCountCy[ECU_CYLINDERS_COUNT];
 
-    int32_t OilSensor;
-    int32_t FanForceSwitch;
-    int32_t HandbrakeSensor;
-    int32_t ChargeSensor;
-    int32_t ClutchSensor;
-    int32_t IgnSensor;
+    uint8_t SwitchPosition;
+    uint8_t CurrentTable;
+    uint8_t InjectorChannel;
 
-    int32_t FuelPumpRelay;
-    int32_t FanRelay;
-    int32_t CheckEngine;
-    int32_t StarterRelay;
-    int32_t FanSwitch;
-    int32_t IgnOutput;
+    uint8_t IdleFlag;
+    uint8_t IdleCorrFlag;
+    uint8_t IdleEconFlag;
 
-    int32_t StartAllowed;
-    int32_t IsRunning;
-    int32_t IsCheckEngine;
+    uint8_t LambdaValid;
 
-    int32_t EtcMotorActiveFlag;
-    int32_t EtcStandaloneFlag;
-    int32_t EtcMotorFullCloseFlag;
+    uint8_t OilSensor;
+    uint8_t FanForceSwitch;
+    uint8_t HandbrakeSensor;
+    uint8_t ChargeSensor;
+    uint8_t ClutchSensor;
+    uint8_t IgnSensor;
 
-    int32_t EtcOutCruizeG;
-    int32_t EtcOutCruizeR;
-    int32_t EtcOutRsvd3;
-    int32_t EtcOutRsvd4;
-    int32_t EtcInCruizeStart;
-    int32_t EtcInCruizeStop;
-    int32_t EtcInBrake;
-    int32_t EtcInRsvd4;
-    int32_t EtcInRsvd5;
-    int32_t EtcInRsvd6;
+    uint8_t FuelPumpRelay;
+    uint8_t FanRelay;
+    uint8_t CheckEngine;
+    uint8_t StarterRelay;
+    uint8_t FanSwitch;
+    uint8_t IgnOutput;
 
-    int32_t CylinderIgnitionBitmask;
-    int32_t CylinderInjectionBitmask;
+    uint8_t StartAllowed;
+    uint8_t IsRunning;
+    uint8_t IsCheckEngine;
+
+    uint8_t EtcMotorActiveFlag;
+    uint8_t EtcStandaloneFlag;
+    uint8_t EtcMotorFullCloseFlag;
+
+    uint8_t EtcOutCruizeG;
+    uint8_t EtcOutCruizeR;
+    uint8_t EtcOutRsvd3;
+    uint8_t EtcOutRsvd4;
+    uint8_t EtcInCruizeStart;
+    uint8_t EtcInCruizeStop;
+    uint8_t EtcInBrake;
+    uint8_t EtcInRsvd4;
+    uint8_t EtcInRsvd5;
+    uint8_t EtcInRsvd6;
+
+    uint8_t CylinderIgnitionBitmask;
+    uint8_t CylinderInjectionBitmask;
 }sParameters;
 
 typedef struct {
