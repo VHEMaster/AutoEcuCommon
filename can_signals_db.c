@@ -1565,3 +1565,14 @@ sCanSignal g_can_signal_id08C_ECU_ETC_Rsvd = {
     .LengthBit = 14
 };
 
+
+sCanMessage g_can_message_id110_LOG_ECU = { 0x110, 2 }; // LOG->ECU tester present
+
+sCanSignal g_can_signal_id110_LOG_ECU_Unique = {
+    .SignalType = CAN_SIGNAL_TYPE_UNSIGNED,
+    .Gain = 1,
+    .Offset = 0,
+    .StartBit = 0,
+    .LengthBit = 16
+};
+

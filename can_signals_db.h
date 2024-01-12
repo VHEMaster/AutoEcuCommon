@@ -246,4 +246,7 @@ extern sCanSignal g_can_signal_id08C_ECU_ETC_PidD;
 extern sCanSignal g_can_signal_id08C_ECU_ETC_TimPsc;
 extern sCanSignal g_can_signal_id08C_ECU_ETC_Rsvd;
 
+extern sCanMessage g_can_message_id110_LOG_ECU;
+extern sCanSignal g_can_signal_id110_LOG_ECU_Unique;
+
 #endif /* CAN_SIGNALS_DB_H_ */
