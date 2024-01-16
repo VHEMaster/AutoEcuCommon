@@ -51,6 +51,8 @@ PACKET_C(PK_SpecificParameterArrayConfigureRequest);
 PACKET_C(PK_SpecificParameterArrayConfigureResponse);
 PACKET_C(PK_SpecificParameterArrayRequest);
 PACKET_C(PK_SpecificParameterArrayResponse);
+PACKET_C(PK_EtcTestRequest);
+PACKET_C(PK_EtcTestResponse);
 
 #define SENDERS_MAX_COUNT 4
 

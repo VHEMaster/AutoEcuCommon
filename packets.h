@@ -377,6 +377,22 @@ typedef struct
   uDword Parameters[PACKET_SPECIFIC_PARAMETERS_ARRAY_MAX_SIZE];
 }PACKET_DEFINE(PK_SpecificParameterArrayResponse, 46);
 
+typedef struct
+{
+  PACKET_HEADER;
+  float StartPosition;
+  uint32_t StartDelay;
+  float FinalPosition;
+  uint32_t MoveTime;
+  uint32_t FinalDelay;
+}PACKET_DEFINE(PK_EtcTestRequest, 47);
+
+typedef struct
+{
+  PACKET_HEADER;
+  uint32_t ErrorCode;
+}PACKET_DEFINE(PK_EtcTestResponse, 48);
+
 
 
 int16_t PK_Copy(void * dest, void * source);
