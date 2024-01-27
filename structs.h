@@ -365,7 +365,10 @@ typedef struct {
     float throttle_position_1d[TABLE_PEDALS_MAX];
     float throttle_startup_move_time[TABLE_TEMPERATURES_MAX];
 
-    int32_t reserved[1048];
+    float knock_detect_phase_start[TABLE_ROTATES_MAX];
+    float knock_detect_phase_end[TABLE_ROTATES_MAX];
+
+    int32_t reserved[1016];
 }sEcuTable;
 
 typedef struct {
