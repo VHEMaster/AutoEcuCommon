@@ -367,8 +367,9 @@ typedef struct {
 
     float knock_detect_phase_start[TABLE_ROTATES_MAX];
     float knock_detect_phase_end[TABLE_ROTATES_MAX];
+    float knock_integrator_time[TABLE_ROTATES_MAX];
 
-    int32_t reserved[1016];
+    int32_t reserved[1000];
 }sEcuTable;
 
 typedef struct {
@@ -448,7 +449,7 @@ typedef struct {
     int32_t useShortTermCorr;
     int32_t useLongTermCorr;
 
-    int32_t knockIntegratorTime;
+    int32_t res3;
     int32_t performIdleAdaptation;
     float learn_cycles_delay_mult;
     float air_temp_corr_koff_min;
