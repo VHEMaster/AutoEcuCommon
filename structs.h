@@ -368,8 +368,9 @@ typedef struct {
     float knock_detect_phase_start[TABLE_ROTATES_MAX];
     float knock_detect_phase_end[TABLE_ROTATES_MAX];
     float knock_integrator_time[TABLE_ROTATES_MAX];
+    float enrichment_tps_selection[TABLE_ENRICHMENT_PERCENTS_MAX][TABLE_ENRICHMENT_PERCENTS_MAX];
 
-    int32_t reserved[1000];
+    int32_t reserved[984];
 }sEcuTable;
 
 typedef struct {
