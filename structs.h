@@ -221,7 +221,7 @@ typedef struct {
 
     int32_t enrichment_load_type;
     float enrichment_load_dead_band;
-    float enrichment_accel_dead_band;
+    float rsvd1;
     float enrichment_ign_corr_decay_time;
     float enrichment_detect_duration;
 
@@ -369,8 +369,9 @@ typedef struct {
     float knock_detect_phase_end[TABLE_ROTATES_MAX];
     float knock_integrator_time[TABLE_ROTATES_MAX];
     float enrichment_tps_selection[TABLE_ENRICHMENT_PERCENTS_MAX][TABLE_ENRICHMENT_PERCENTS_MAX];
+    float enrichment_accel_dead_band[TABLE_ROTATES_MAX];
 
-    int32_t reserved[984];
+    int32_t reserved[728];
 }sEcuTable;
 
 typedef struct {
