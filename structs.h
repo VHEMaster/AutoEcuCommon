@@ -371,7 +371,7 @@ typedef struct {
     float enrichment_tps_selection[TABLE_ENRICHMENT_PERCENTS_MAX][TABLE_ENRICHMENT_PERCENTS_MAX];
     float enrichment_accel_dead_band[TABLE_ROTATES_MAX];
 
-    int32_t reserved[728];
+    int32_t reserved[920];
 }sEcuTable;
 
 typedef struct {
