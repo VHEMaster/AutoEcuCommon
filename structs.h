@@ -373,8 +373,9 @@ typedef struct {
 
     float dynamic_fuel_corr_gbc[TABLE_FILLING_MAX];
     float dynamic_fuel_corr_temp[TABLE_TEMPERATURES_MAX];
+    float dynamic_fuel_corr_lpf[TABLE_ROTATES_MAX];
 
-    int32_t reserved[888];
+    int32_t reserved[872];
 }sEcuTable;
 
 typedef struct {
