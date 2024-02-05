@@ -425,7 +425,7 @@ typedef struct {
     float speedOutputCorrection;
 
     int32_t useLambdaSensor;
-    int32_t isLambdaForceEnabled;
+    int32_t res1;
     int32_t phasedMode;
     int32_t useKnockSensor;
     int32_t performAdaptation;
@@ -698,7 +698,9 @@ typedef struct {
       uint8_t FuelPumpRelay;
       uint8_t CheckEngine;
     } Enable;
-    uint32_t pad;
+    uint32_t pad1;
+    uint8_t LambdaForceEnabled;
+    uint32_t pad2;
 }sForceParameters;
 
 typedef struct {
