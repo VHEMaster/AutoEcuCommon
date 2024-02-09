@@ -450,7 +450,7 @@ typedef struct {
 
     int32_t useIdleValve;
     int32_t useEtc;
-    float res2;
+    float etcPedalDeadZone;
 
     int32_t useShortTermCorr;
     int32_t useLongTermCorr;
