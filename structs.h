@@ -24,7 +24,7 @@ typedef struct {
 }sDragPoint;
 
 typedef struct {
-    sDragPoint Points[DRAG_MAX_POINTS];
+    sDragPoint Points[DRAG_POINTS];
     uint32_t PointsCount;
     float FromSpeed;
     float ToSpeed;
@@ -173,6 +173,122 @@ typedef struct {
 }sEtcOutputDiagnostic;
 
 typedef struct {
+    float gain;
+    float offset;
+}sEcuParamTransform;
+
+typedef struct {
+    sEcuParamTransform cylinders;
+    sEcuParamTransform voltages;
+    sEcuParamTransform pressures_16;
+    sEcuParamTransform pressures_32;
+    sEcuParamTransform rotates_16;
+    sEcuParamTransform rotates_32;
+    sEcuParamTransform idle_rotates;
+    sEcuParamTransform throttles_16;
+    sEcuParamTransform throttles_32;
+    sEcuParamTransform pedals;
+    sEcuParamTransform filling_gbc_map;
+    sEcuParamTransform filling_gbc_tps;
+    sEcuParamTransform throttle_position;
+    sEcuParamTransform stop_throttle_position;
+    sEcuParamTransform filling_select_koff_tps;
+    sEcuParamTransform enrichment_injection_phase;
+    sEcuParamTransform enrichment_rate_start_load;
+    sEcuParamTransform enrichment_rate_load_derivative;
+    sEcuParamTransform enrichment_rate;
+    sEcuParamTransform enrichment_sync_amount;
+    sEcuParamTransform enrichment_async_amount;
+    sEcuParamTransform enrichment_ign_corr;
+    sEcuParamTransform enrichment_temp_mult;
+    sEcuParamTransform fillings_16;
+    sEcuParamTransform fillings_32;
+    sEcuParamTransform ignitions;
+    sEcuParamTransform ignition_corr_cy;
+    sEcuParamTransform injection_corr_cy;
+    sEcuParamTransform fuel_mixtures;
+    sEcuParamTransform injection_phase;
+    sEcuParamTransform ignition_time_rpm_mult;
+    sEcuParamTransform ignition_time;
+    sEcuParamTransform injector_lag;
+    sEcuParamTransform engine_temps;
+    sEcuParamTransform air_temps;
+    sEcuParamTransform air_temp_mix_corr;
+    sEcuParamTransform air_temp_ign_corr;
+    sEcuParamTransform engine_temp_mix_corr;
+    sEcuParamTransform engine_temp_ign_corr;
+    sEcuParamTransform idle_wish_rotates;
+    sEcuParamTransform idle_wish_massair;
+    sEcuParamTransform idle_wish_ignition;
+    sEcuParamTransform idle_wish_ignition_static;
+    sEcuParamTransform idle_valve_position;
+    sEcuParamTransform idle_throttle_position;
+    sEcuParamTransform idle_rpm_pid_act_1;
+    sEcuParamTransform idle_rpm_pid_act_2;
+    sEcuParamTransform idle_pids_rpm_koffs;
+    sEcuParamTransform idle_valve_to_massair_pid_p;
+    sEcuParamTransform idle_valve_to_massair_pid_i;
+    sEcuParamTransform idle_valve_to_massair_pid_d;
+    sEcuParamTransform idle_valve_to_rpm_pid_p;
+    sEcuParamTransform idle_valve_to_rpm_pid_i;
+    sEcuParamTransform idle_valve_to_rpm_pid_d;
+    sEcuParamTransform idle_throttle_to_massair_pid_p;
+    sEcuParamTransform idle_throttle_to_massair_pid_i;
+    sEcuParamTransform idle_throttle_to_massair_pid_d;
+    sEcuParamTransform idle_throttle_to_rpm_pid_p;
+    sEcuParamTransform idle_throttle_to_rpm_pid_i;
+    sEcuParamTransform idle_throttle_to_rpm_pid_d;
+    sEcuParamTransform idle_ign_to_rpm_pid_p;
+    sEcuParamTransform idle_ign_to_rpm_pid_i;
+    sEcuParamTransform idle_ign_to_rpm_pid_d;
+    sEcuParamTransform warmup_mixtures;
+    sEcuParamTransform warmup_mix_koffs;
+    sEcuParamTransform warmup_mix_corrs;
+    sEcuParamTransform cold_start_idle_corrs;
+    sEcuParamTransform cold_start_idle_times;
+    sEcuParamTransform start_injection_phase;
+    sEcuParamTransform start_idle_valve_pos;
+    sEcuParamTransform start_throttle_position;
+    sEcuParamTransform start_ignition;
+    sEcuParamTransform start_tps_corrs;
+    sEcuParamTransform start_async_filling;
+    sEcuParamTransform start_large_filling;
+    sEcuParamTransform start_small_filling;
+    sEcuParamTransform start_filling_time;
+    sEcuParamTransform speeds;
+    sEcuParamTransform idle_rpm_shift;
+    sEcuParamTransform knock_noise_level;
+    sEcuParamTransform knock_threshold;
+    sEcuParamTransform knock_zone;
+    sEcuParamTransform knock_gain;
+    sEcuParamTransform knock_filter_frequency;
+    sEcuParamTransform knock_cy_level_multiplier;
+    sEcuParamTransform cy_corr_injection;
+    sEcuParamTransform cy_corr_ignition;
+    sEcuParamTransform tsps_relative_pos;
+    sEcuParamTransform tsps_desync_thr;
+    sEcuParamTransform idle_ignition_time_by_tps;
+    sEcuParamTransform idle_econ_delay;
+    sEcuParamTransform start_econ_delay;
+    sEcuParamTransform fan_advance_control;
+    sEcuParamTransform idle_valve_econ_position;
+    sEcuParamTransform idle_throttle_econ_position;
+    sEcuParamTransform pedal_ignition_control;
+    sEcuParamTransform throttle_position_1d;
+    sEcuParamTransform throttle_startup_move_time;
+    sEcuParamTransform knock_detect_phase_start;
+    sEcuParamTransform knock_detect_phase_end;
+    sEcuParamTransform knock_integrator_time;
+    sEcuParamTransform enrichment_tps_selection;
+    sEcuParamTransform enrichment_accel_dead_band;
+    sEcuParamTransform dynamic_fuel_corr_gbc;
+    sEcuParamTransform dynamic_fuel_corr_temp;
+    sEcuParamTransform dynamic_fuel_corr_lpf;
+}sEcuTableTransform;
+
+typedef struct {
+    sEcuTableTransform transform;
+
     char name[TABLE_STRING_MAX];
 
     eInjChannel inj_channel;
@@ -186,119 +302,108 @@ typedef struct {
     float fuel_mass_per_cc;
     float fuel_afr;
 
-    int32_t cylinders_count;
-    float cylinders[ECU_CYLINDERS_COUNT];
+    uint8_t cylinders[ECU_CYLINDERS_COUNT];
 
-    int32_t voltages_count;
-    float voltages[TABLE_VOLTAGES_MAX];
+    uint8_t voltages[TABLE_VOLTAGES];
 
-    int32_t pressures_count;
-    float pressures[TABLE_PRESSURES_MAX];
+    uint16_t pressures_16[TABLE_PRESSURES_16];
+    uint16_t pressures_32[TABLE_PRESSURES_32];
 
-    int32_t rotates_count;
-    float rotates[TABLE_ROTATES_MAX];
+    uint16_t rotates_16[TABLE_ROTATES_16];
+    uint16_t rotates_32[TABLE_ROTATES_32];
 
-    int32_t idle_rotates_count;
-    float idle_rotates[TABLE_ROTATES_MAX];
+    uint16_t idle_rotates[TABLE_ROTATES_16];
 
-    int32_t throttles_count;
-    float throttles[TABLE_THROTTLES_MAX];
+    uint16_t throttles_16[TABLE_THROTTLES_16];
+    uint16_t throttles_32[TABLE_THROTTLES_32];
 
-    int32_t pedals_count;
-    float pedals[TABLE_PEDALS_MAX];
+    uint16_t pedals[TABLE_PEDALS];
 
-    float filling_gbc_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
-    float filling_gbc_tps[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
-    float throttle_position[TABLE_ROTATES_MAX][TABLE_PEDALS_MAX];
-    float stop_throttle_position[TABLE_PEDALS_MAX];
+    uint16_t filling_gbc_map[TABLE_PRESSURES_32][TABLE_ROTATES_32];
+    uint16_t filling_gbc_tps[TABLE_THROTTLES_32][TABLE_ROTATES_32];
+    uint16_t throttle_position[TABLE_ROTATES_16][TABLE_PEDALS];
+    uint16_t stop_throttle_position[TABLE_PEDALS];
 
     int32_t idle_valve_pos_min;
     int32_t idle_valve_pos_max;
     float idle_throttle_pos_min;
     float idle_throttle_pos_max;
-    float filling_select_koff_tps[TABLE_ROTATES_MAX];
+    uint8_t filling_select_koff_tps[TABLE_ROTATES_16];
 
 
     int32_t enrichment_load_type;
     float enrichment_load_dead_band;
-    float rsvd1;
     float enrichment_ign_corr_decay_time;
     float enrichment_detect_duration;
 
     int32_t enrichment_async_pulses_divider;
     float enrichment_injection_phase_decay_time;
-    float enrichment_injection_phase[TABLE_ROTATES_MAX];
+    uint8_t enrichment_injection_phase[TABLE_ROTATES_16];
     float enrichment_end_injection_final_phase;
     int32_t enrichment_ph_post_injection_enabled;
     int32_t enrichment_pp_post_injection_enabled;
     float enrichment_end_injection_final_amount;
 
-    int32_t enrichment_rate_start_load_count;
-    int32_t enrichment_rate_load_derivative_count;
-    float enrichment_rate_start_load[TABLE_ENRICHMENT_PERCENTS_MAX];
-    float enrichment_rate_load_derivative[TABLE_ENRICHMENT_PERCENTS_MAX];
-    float enrichment_rate[TABLE_ENRICHMENT_PERCENTS_MAX][TABLE_ENRICHMENT_PERCENTS_MAX];
-    float enrichment_sync_amount[TABLE_ROTATES_MAX];
-    float enrichment_async_amount[TABLE_ROTATES_MAX];
-    float enrichment_ign_corr[TABLE_ROTATES_MAX][TABLE_ENRICHMENT_PERCENTS_MAX];
-    float enrichment_temp_mult[TABLE_TEMPERATURES_MAX];
+    uint8_t enrichment_rate_start_load[TABLE_ENRICHMENT_PERCENTS];
+    uint8_t enrichment_rate_load_derivative[TABLE_ENRICHMENT_PERCENTS];
+    uint8_t enrichment_rate[TABLE_ENRICHMENT_PERCENTS][TABLE_ENRICHMENT_PERCENTS];
+    uint8_t enrichment_sync_amount[TABLE_ROTATES_16];
+    uint8_t enrichment_async_amount[TABLE_ROTATES_16];
+    uint8_t enrichment_ign_corr[TABLE_ROTATES_16][TABLE_ENRICHMENT_PERCENTS];
+    uint8_t enrichment_temp_mult[TABLE_TEMPERATURES];
 
-    int32_t fillings_count;
-    float fillings[TABLE_FILLING_MAX];
+    uint8_t fillings_16[TABLE_FILLING_16];
+    uint8_t fillings_32[TABLE_FILLING_32];
 
-    float ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    float ignition_corr_cy[ECU_CYLINDERS_COUNT][TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    float injection_corr_cy[ECU_CYLINDERS_COUNT][TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    float fuel_mixtures[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    float injection_phase[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
+    uint8_t ignitions[TABLE_FILLING_32][TABLE_ROTATES_32];
+    int8_t ignition_corr_cy[ECU_CYLINDERS_COUNT][TABLE_FILLING_32][TABLE_ROTATES_32];
+    int8_t injection_corr_cy[ECU_CYLINDERS_COUNT][TABLE_FILLING_32][TABLE_ROTATES_32];
+    uint8_t fuel_mixtures[TABLE_FILLING_16][TABLE_ROTATES_16];
+    uint8_t injection_phase[TABLE_FILLING_16][TABLE_ROTATES_16];
 
-    float injection_phase_lpf[TABLE_ROTATES_MAX];
+    uint8_t ignition_time_rpm_mult[TABLE_ROTATES_16];
+    uint8_t ignition_time[TABLE_VOLTAGES];
+    uint8_t injector_lag[TABLE_VOLTAGES];
 
-    float ignition_time_rpm_mult[TABLE_ROTATES_MAX];
-    float ignition_time[TABLE_VOLTAGES_MAX];
-    float injector_lag[TABLE_VOLTAGES_MAX];
+    int8_t engine_temps[TABLE_TEMPERATURES];
 
-    int32_t engine_temp_count;
-    float engine_temps[TABLE_TEMPERATURES_MAX];
+    int8_t air_temps[TABLE_TEMPERATURES];
+    int8_t air_temp_mix_corr[TABLE_TEMPERATURES][TABLE_FILLING_16];
+    int8_t air_temp_ign_corr[TABLE_TEMPERATURES][TABLE_FILLING_16];
 
-    int32_t air_temp_count;
-    float air_temps[TABLE_TEMPERATURES_MAX];
-    float air_temp_mix_corr[TABLE_TEMPERATURES_MAX][TABLE_FILLING_MAX];
-    float air_temp_ign_corr[TABLE_TEMPERATURES_MAX][TABLE_FILLING_MAX];
-    float engine_temp_mix_corr[TABLE_TEMPERATURES_MAX][TABLE_FILLING_MAX];
-    float engine_temp_ign_corr[TABLE_TEMPERATURES_MAX][TABLE_FILLING_MAX];
+    int8_t engine_temp_mix_corr[TABLE_TEMPERATURES][TABLE_FILLING_16];
+    int8_t engine_temp_ign_corr[TABLE_TEMPERATURES][TABLE_FILLING_16];
 
-    float idle_wish_rotates[TABLE_TEMPERATURES_MAX];
-    float idle_wish_massair[TABLE_TEMPERATURES_MAX];
-    float idle_wish_ignition[TABLE_TEMPERATURES_MAX];
-    float idle_wish_ignition_static[TABLE_ROTATES_MAX];
-    float idle_valve_position[TABLE_TEMPERATURES_MAX];
-    float idle_throttle_position[TABLE_TEMPERATURES_MAX];
+    uint8_t idle_wish_rotates[TABLE_TEMPERATURES];
+    uint8_t idle_wish_massair[TABLE_TEMPERATURES];
+    uint8_t idle_wish_ignition[TABLE_TEMPERATURES];
+    uint8_t idle_wish_ignition_static[TABLE_ROTATES_16];
+    uint8_t idle_valve_position[TABLE_TEMPERATURES];
+    uint8_t idle_throttle_position[TABLE_TEMPERATURES];
 
-    float idle_rpm_pid_act_1[TABLE_TEMPERATURES_MAX];
-    float idle_rpm_pid_act_2[TABLE_TEMPERATURES_MAX];
+    uint8_t idle_rpm_pid_act_1[TABLE_TEMPERATURES];
+    uint8_t idle_rpm_pid_act_2[TABLE_TEMPERATURES];
 
-    int32_t idle_pids_rpm_koffs_count;
-    float idle_pids_rpm_koffs[TABLE_ROTATES_MAX];
-    float idle_valve_to_massair_pid_p[TABLE_ROTATES_MAX];
-    float idle_valve_to_massair_pid_i[TABLE_ROTATES_MAX];
-    float idle_valve_to_massair_pid_d[TABLE_ROTATES_MAX];
+    uint8_t idle_pids_rpm_koffs[TABLE_ROTATES_16];
+    uint16_t idle_valve_to_massair_pid_p[TABLE_ROTATES_16];
+    uint16_t idle_valve_to_massair_pid_i[TABLE_ROTATES_16];
+    uint16_t idle_valve_to_massair_pid_d[TABLE_ROTATES_16];
 
-    float idle_valve_to_rpm_pid_p[TABLE_ROTATES_MAX];
-    float idle_valve_to_rpm_pid_i[TABLE_ROTATES_MAX];
-    float idle_valve_to_rpm_pid_d[TABLE_ROTATES_MAX];
+    uint16_t idle_valve_to_rpm_pid_p[TABLE_ROTATES_16];
+    uint16_t idle_valve_to_rpm_pid_i[TABLE_ROTATES_16];
+    uint16_t idle_valve_to_rpm_pid_d[TABLE_ROTATES_16];
 
-    float idle_throttle_to_massair_pid_p[TABLE_ROTATES_MAX];
-    float idle_throttle_to_massair_pid_i[TABLE_ROTATES_MAX];
-    float idle_throttle_to_massair_pid_d[TABLE_ROTATES_MAX];
+    uint16_t idle_throttle_to_massair_pid_p[TABLE_ROTATES_16];
+    uint16_t idle_throttle_to_massair_pid_i[TABLE_ROTATES_16];
+    uint16_t idle_throttle_to_massair_pid_d[TABLE_ROTATES_16];
 
-    float idle_throttle_to_rpm_pid_p[TABLE_ROTATES_MAX];
-    float idle_throttle_to_rpm_pid_i[TABLE_ROTATES_MAX];
-    float idle_throttle_to_rpm_pid_d[TABLE_ROTATES_MAX];
+    uint16_t idle_throttle_to_rpm_pid_p[TABLE_ROTATES_16];
+    uint16_t idle_throttle_to_rpm_pid_i[TABLE_ROTATES_16];
+    uint16_t idle_throttle_to_rpm_pid_d[TABLE_ROTATES_16];
 
-    float idle_ign_to_rpm_pid_p[TABLE_ROTATES_MAX];
-    float idle_ign_to_rpm_pid_i[TABLE_ROTATES_MAX];
-    float idle_ign_to_rpm_pid_d[TABLE_ROTATES_MAX];
+    uint16_t idle_ign_to_rpm_pid_p[TABLE_ROTATES_16];
+    uint16_t idle_ign_to_rpm_pid_i[TABLE_ROTATES_16];
+    uint16_t idle_ign_to_rpm_pid_d[TABLE_ROTATES_16];
 
     float short_term_corr_pid_p;
     float short_term_corr_pid_i;
@@ -313,96 +418,85 @@ typedef struct {
     float idle_air_fan_low_corr;
     float idle_air_fan_high_corr;
 
-    float warmup_mixtures[TABLE_TEMPERATURES_MAX];
-    float warmup_mix_koffs[TABLE_TEMPERATURES_MAX];
-    float warmup_mix_corrs[TABLE_TEMPERATURES_MAX];
+    uint8_t warmup_mixtures[TABLE_TEMPERATURES];
+    uint8_t warmup_mix_koffs[TABLE_TEMPERATURES];
+    uint8_t warmup_mix_corrs[TABLE_TEMPERATURES];
 
-    float cold_start_idle_corrs[TABLE_TEMPERATURES_MAX];
-    float cold_start_idle_times[TABLE_TEMPERATURES_MAX];
-    float start_injection_phase[TABLE_TEMPERATURES_MAX];
-    float start_idle_valve_pos[TABLE_TEMPERATURES_MAX];
-    float start_throttle_position[TABLE_TEMPERATURES_MAX];
-    float start_ignition[TABLE_TEMPERATURES_MAX];
-    float start_tps_corrs[TABLE_THROTTLES_MAX];
-    float start_async_filling[TABLE_TEMPERATURES_MAX];
-    float start_large_filling[TABLE_TEMPERATURES_MAX];
-    float start_small_filling[TABLE_TEMPERATURES_MAX];
-    float start_filling_time[TABLE_TEMPERATURES_MAX];
+    uint8_t cold_start_idle_corrs[TABLE_TEMPERATURES];
+    uint8_t cold_start_idle_times[TABLE_TEMPERATURES];
+    uint8_t start_injection_phase[TABLE_TEMPERATURES];
+    uint8_t start_idle_valve_pos[TABLE_TEMPERATURES];
+    uint8_t start_throttle_position[TABLE_TEMPERATURES];
+    uint8_t start_ignition[TABLE_TEMPERATURES];
+    uint8_t start_tps_corrs[TABLE_THROTTLES_16];
+    uint8_t start_async_filling[TABLE_TEMPERATURES];
+    uint8_t start_large_filling[TABLE_TEMPERATURES];
+    uint8_t start_small_filling[TABLE_TEMPERATURES];
+    uint8_t start_filling_time[TABLE_TEMPERATURES];
     int32_t start_large_count;
 
-    int32_t speeds_count;
-    float speeds[TABLE_SPEEDS_MAX];
-    float idle_rpm_shift[TABLE_SPEEDS_MAX];
+    uint8_t speeds[TABLE_SPEEDS];
+    uint8_t idle_rpm_shift[TABLE_SPEEDS];
 
     float knock_ign_corr_max;
     float knock_inj_corr_max;
-    float knock_noise_level[TABLE_ROTATES_MAX];
-    float knock_threshold[TABLE_ROTATES_MAX];
-    float knock_zone[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    float knock_gain[TABLE_ROTATES_MAX];
-    float knock_filter_frequency[TABLE_ROTATES_MAX];
-    float knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_MAX];
+    uint8_t knock_noise_level[TABLE_ROTATES_32];
+    uint8_t knock_threshold[TABLE_ROTATES_32];
+    uint8_t knock_zone[TABLE_FILLING_16][TABLE_ROTATES_16];
+    uint8_t knock_gain[TABLE_ROTATES_32];
+    uint8_t knock_filter_frequency[TABLE_ROTATES_32];
+    uint8_t knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_32];
 
-    float cy_corr_injection[ECU_CYLINDERS_COUNT];
-    float cy_corr_ignition[ECU_CYLINDERS_COUNT];
+    int8_t cy_corr_injection[ECU_CYLINDERS_COUNT];
+    int8_t cy_corr_ignition[ECU_CYLINDERS_COUNT];
 
-    float tsps_relative_pos[TABLE_ROTATES_MAX];
-    float tsps_desync_thr[TABLE_ROTATES_MAX];
+    int8_t tsps_relative_pos[TABLE_ROTATES_32];
+    uint8_t tsps_desync_thr[TABLE_ROTATES_16];
 
-    float idle_ignition_time_by_tps[TABLE_THROTTLES_MAX];
-    float idle_econ_delay[TABLE_TEMPERATURES_MAX];
-    float start_econ_delay[TABLE_TEMPERATURES_MAX];
+    uint8_t idle_ignition_time_by_tps[TABLE_THROTTLES_32];
+    uint8_t idle_econ_delay[TABLE_TEMPERATURES];
+    uint8_t start_econ_delay[TABLE_TEMPERATURES];
 
     float fan_advance_control_low;
     float fan_advance_control_mid;
     float fan_advance_control_high;
 
-    float fan_advance_control[TABLE_TEMPERATURES_MAX][TABLE_SPEEDS_MAX];
-    float idle_valve_econ_position[TABLE_ROTATES_MAX];
-    float idle_throttle_econ_position[TABLE_ROTATES_MAX];
-    float pedal_ignition_control[TABLE_ROTATES_MAX];
+    int8_t fan_advance_control[TABLE_TEMPERATURES][TABLE_SPEEDS];
+    uint8_t idle_valve_econ_position[TABLE_ROTATES_32];
+    uint8_t idle_throttle_econ_position[TABLE_ROTATES_32];
+    uint8_t pedal_ignition_control[TABLE_ROTATES_16];
     int32_t throttle_position_use_1d;
-    float throttle_position_1d[TABLE_PEDALS_MAX];
-    float throttle_startup_move_time[TABLE_TEMPERATURES_MAX];
+    uint16_t throttle_position_1d[TABLE_PEDALS];
+    uint8_t throttle_startup_move_time[TABLE_TEMPERATURES];
 
-    float knock_detect_phase_start[TABLE_ROTATES_MAX];
-    float knock_detect_phase_end[TABLE_ROTATES_MAX];
-    float knock_integrator_time[TABLE_ROTATES_MAX];
-    float enrichment_tps_selection[TABLE_ENRICHMENT_PERCENTS_MAX][TABLE_ENRICHMENT_PERCENTS_MAX];
-    float enrichment_accel_dead_band[TABLE_ROTATES_MAX];
+    uint8_t knock_detect_phase_start[TABLE_ROTATES_32];
+    uint8_t knock_detect_phase_end[TABLE_ROTATES_32];
+    uint8_t knock_integrator_time[TABLE_ROTATES_32];
+    uint8_t enrichment_tps_selection[TABLE_ENRICHMENT_PERCENTS][TABLE_ENRICHMENT_PERCENTS];
+    uint8_t enrichment_accel_dead_band[TABLE_ROTATES_16];
 
-    float dynamic_fuel_corr_gbc[TABLE_FILLING_MAX];
-    float dynamic_fuel_corr_temp[TABLE_TEMPERATURES_MAX];
-    float dynamic_fuel_corr_lpf[TABLE_ROTATES_MAX];
-
-    int32_t reserved[872];
+    uint8_t dynamic_fuel_corr_gbc[TABLE_FILLING_16];
+    uint8_t dynamic_fuel_corr_temp[TABLE_TEMPERATURES];
+    uint8_t dynamic_fuel_corr_lpf[TABLE_ROTATES_16];
 }sEcuTable;
 
 typedef struct {
-    float ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    float filling_gbc_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
-    float filling_gbc_tps[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
-    float idle_valve_position[TABLE_TEMPERATURES_MAX];
-    float knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_MAX];
-    float ignition_corr_cy[ECU_CYLINDERS_COUNT][TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    float injection_corr_cy[ECU_CYLINDERS_COUNT][TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    float knock_detonation_counter[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    uint8_t progress_ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    uint8_t progress_filling_gbc_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
-    uint8_t progress_filling_gbc_tps[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
-    uint8_t progress_idle_valve_position[TABLE_TEMPERATURES_MAX];
-    uint8_t progress_knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_MAX];
+    int8_t ignitions[TABLE_FILLING_32][TABLE_ROTATES_32];
+    int8_t filling_gbc_map[TABLE_PRESSURES_32][TABLE_ROTATES_32];
+    int8_t filling_gbc_tps[TABLE_THROTTLES_32][TABLE_ROTATES_32];
+    int8_t idle_valve_position[TABLE_TEMPERATURES];
+    int8_t knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_32];
+    int8_t ignition_corr_cy[ECU_CYLINDERS_COUNT][TABLE_FILLING_32][TABLE_ROTATES_32];
+    int8_t injection_corr_cy[ECU_CYLINDERS_COUNT][TABLE_FILLING_32][TABLE_ROTATES_32];
+    uint8_t knock_detonation_counter[TABLE_FILLING_32][TABLE_ROTATES_32];
+    uint8_t progress_ignitions[TABLE_FILLING_32][TABLE_ROTATES_32];
+    uint8_t progress_filling_gbc_map[TABLE_PRESSURES_32][TABLE_ROTATES_32];
+    uint8_t progress_filling_gbc_tps[TABLE_THROTTLES_32][TABLE_ROTATES_32];
+    uint8_t progress_idle_valve_position[TABLE_TEMPERATURES];
+    uint8_t progress_knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_32];
     float long_term_correction;
     float idle_correction;
 }sEcuCorrections;
-
-typedef struct {
-    float progress_ignitions[TABLE_FILLING_MAX][TABLE_ROTATES_MAX];
-    float progress_filling_gbc_map[TABLE_PRESSURES_MAX][TABLE_ROTATES_MAX];
-    float progress_filling_gbc_tps[TABLE_THROTTLES_MAX][TABLE_ROTATES_MAX];
-    float progress_idle_valve_position[TABLE_TEMPERATURES_MAX];
-    float progress_knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_MAX];
-}sEcuCorrectionsProgress;
 
 typedef struct {
     float engineVolume;
@@ -466,8 +560,6 @@ typedef struct {
 
     float map_pressure_gain;
     float map_pressure_offset;
-
-    int32_t Reserved32[970];
 }sEcuParams;
 
 typedef struct {
