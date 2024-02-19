@@ -11,6 +11,7 @@
 #include "interpolation_extended.h"
 #include "defines.h"
 #include "structs.h"
+#include <limits.h>
 
 STATIC_INLINE sMathInterpolateInput ecu_interpolate_input_u8(float value, const uint8_t *table, uint32_t size, const sEcuParamTransform *transform)
 {
@@ -459,78 +460,96 @@ STATIC_INLINE void ecu_transform_from_s32(float *dst, const int32_t *src, uint32
 STATIC_INLINE void ecu_transform_to_u8(uint8_t *dst, const float *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
 {
   uint32_t items;
+  float value;
 
   src_sizeof /= sizeof(*src);
   dst_sizeof /= sizeof(*dst);
   items = MIN(src_sizeof, dst_sizeof);
 
   while(items--) {
-    *dst++ = (*src++ - transform->offset) / transform->gain;
+    value = (*src++ - transform->offset) / transform->gain;
+    value = CLAMP(value, 0, UCHAR_MAX);
+    *dst++ = value;
   }
 }
 
 STATIC_INLINE void ecu_transform_to_u16(uint16_t *dst, const float *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
 {
   uint32_t items;
+  float value;
 
   src_sizeof /= sizeof(*src);
   dst_sizeof /= sizeof(*dst);
   items = MIN(src_sizeof, dst_sizeof);
 
   while(items--) {
-    *dst++ = (*src++ - transform->offset) / transform->gain;
+    value = (*src++ - transform->offset) / transform->gain;
+    value = CLAMP(value, 0, USHRT_MAX);
+    *dst++ = value;
   }
 }
 
 STATIC_INLINE void ecu_transform_to_u32(uint32_t *dst, const float *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
 {
   uint32_t items;
+  float value;
 
   src_sizeof /= sizeof(*src);
   dst_sizeof /= sizeof(*dst);
   items = MIN(src_sizeof, dst_sizeof);
 
   while(items--) {
-    *dst++ = (*src++ - transform->offset) / transform->gain;
+    value = (*src++ - transform->offset) / transform->gain;
+    value = CLAMP(value, 0, UINT_MAX);
+    *dst++ = value;
   }
 }
 
 STATIC_INLINE void ecu_transform_to_s8(int8_t *dst, const float *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
 {
   uint32_t items;
+  float value;
 
   src_sizeof /= sizeof(*src);
   dst_sizeof /= sizeof(*dst);
   items = MIN(src_sizeof, dst_sizeof);
 
   while(items--) {
-    *dst++ = (*src++ - transform->offset) / transform->gain;
+    value = (*src++ - transform->offset) / transform->gain;
+    value = CLAMP(value, SCHAR_MIN, SCHAR_MAX);
+    *dst++ = value;
   }
 }
 
 STATIC_INLINE void ecu_transform_to_s16(int16_t *dst, const float *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
 {
   uint32_t items;
+  float value;
 
   src_sizeof /= sizeof(*src);
   dst_sizeof /= sizeof(*dst);
   items = MIN(src_sizeof, dst_sizeof);
 
   while(items--) {
-    *dst++ = (*src++ - transform->offset) / transform->gain;
+    value = (*src++ - transform->offset) / transform->gain;
+    value = CLAMP(value, SHRT_MIN, SHRT_MAX);
+    *dst++ = value;
   }
 }
 
 STATIC_INLINE void ecu_transform_to_s32(int32_t *dst, const float *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
 {
   uint32_t items;
+  float value;
 
   src_sizeof /= sizeof(*src);
   dst_sizeof /= sizeof(*dst);
   items = MIN(src_sizeof, dst_sizeof);
 
   while(items--) {
-    *dst++ = (*src++ - transform->offset) / transform->gain;
+    value = (*src++ - transform->offset) / transform->gain;
+    value = CLAMP(value, INT_MIN, INT_MAX);
+    *dst++ = value;
   }
 }
 

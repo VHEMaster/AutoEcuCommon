@@ -286,6 +286,19 @@ typedef struct {
     sEcuParamTransform dynamic_fuel_corr_lpf;
 }sEcuTableTransform;
 
+
+typedef struct {
+    sEcuParamTransform ignitions;
+    sEcuParamTransform filling_gbc_map;
+    sEcuParamTransform filling_gbc_tps;
+    sEcuParamTransform idle_valve_position;
+    sEcuParamTransform knock_cy_level_multiplier;
+    sEcuParamTransform ignition_corr_cy;
+    sEcuParamTransform injection_corr_cy;
+    sEcuParamTransform knock_detonation_counter;
+    sEcuParamTransform progress;
+}sEcuCorrectionsTransform;
+
 typedef struct {
     sEcuTableTransform transform;
 
@@ -429,9 +442,9 @@ typedef struct {
     uint8_t start_throttle_position[TABLE_TEMPERATURES];
     uint8_t start_ignition[TABLE_TEMPERATURES];
     uint8_t start_tps_corrs[TABLE_THROTTLES_16];
-    uint8_t start_async_filling[TABLE_TEMPERATURES];
-    uint8_t start_large_filling[TABLE_TEMPERATURES];
-    uint8_t start_small_filling[TABLE_TEMPERATURES];
+    uint16_t start_async_filling[TABLE_TEMPERATURES];
+    uint16_t start_large_filling[TABLE_TEMPERATURES];
+    uint16_t start_small_filling[TABLE_TEMPERATURES];
     uint8_t start_filling_time[TABLE_TEMPERATURES];
     int32_t start_large_count;
 
@@ -469,8 +482,8 @@ typedef struct {
     uint16_t throttle_position_1d[TABLE_PEDALS];
     uint8_t throttle_startup_move_time[TABLE_TEMPERATURES];
 
-    uint8_t knock_detect_phase_start[TABLE_ROTATES_32];
-    uint8_t knock_detect_phase_end[TABLE_ROTATES_32];
+    int8_t knock_detect_phase_start[TABLE_ROTATES_32];
+    int8_t knock_detect_phase_end[TABLE_ROTATES_32];
     uint8_t knock_integrator_time[TABLE_ROTATES_32];
     uint8_t enrichment_tps_selection[TABLE_ENRICHMENT_PERCENTS][TABLE_ENRICHMENT_PERCENTS];
     uint8_t enrichment_accel_dead_band[TABLE_ROTATES_16];
@@ -481,6 +494,7 @@ typedef struct {
 }sEcuTable;
 
 typedef struct {
+    sEcuCorrectionsTransform transform;
     int8_t ignitions[TABLE_FILLING_32][TABLE_ROTATES_32];
     int8_t filling_gbc_map[TABLE_PRESSURES_32][TABLE_ROTATES_32];
     int8_t filling_gbc_tps[TABLE_THROTTLES_32][TABLE_ROTATES_32];
