@@ -385,25 +385,25 @@ typedef struct {
     uint8_t idle_rpm_pid_act_2[TABLE_TEMPERATURES];
 
     uint8_t idle_pids_rpm_koffs[TABLE_ROTATES_16];
-    uint16_t idle_valve_to_massair_pid_p[TABLE_ROTATES_16];
-    uint16_t idle_valve_to_massair_pid_i[TABLE_ROTATES_16];
-    uint16_t idle_valve_to_massair_pid_d[TABLE_ROTATES_16];
+    int16_t idle_valve_to_massair_pid_p[TABLE_ROTATES_16];
+    int16_t idle_valve_to_massair_pid_i[TABLE_ROTATES_16];
+    int16_t idle_valve_to_massair_pid_d[TABLE_ROTATES_16];
 
-    uint16_t idle_valve_to_rpm_pid_p[TABLE_ROTATES_16];
-    uint16_t idle_valve_to_rpm_pid_i[TABLE_ROTATES_16];
-    uint16_t idle_valve_to_rpm_pid_d[TABLE_ROTATES_16];
+    int16_t idle_valve_to_rpm_pid_p[TABLE_ROTATES_16];
+    int16_t idle_valve_to_rpm_pid_i[TABLE_ROTATES_16];
+    int16_t idle_valve_to_rpm_pid_d[TABLE_ROTATES_16];
 
-    uint16_t idle_throttle_to_massair_pid_p[TABLE_ROTATES_16];
-    uint16_t idle_throttle_to_massair_pid_i[TABLE_ROTATES_16];
-    uint16_t idle_throttle_to_massair_pid_d[TABLE_ROTATES_16];
+    int16_t idle_throttle_to_massair_pid_p[TABLE_ROTATES_16];
+    int16_t idle_throttle_to_massair_pid_i[TABLE_ROTATES_16];
+    int16_t idle_throttle_to_massair_pid_d[TABLE_ROTATES_16];
 
-    uint16_t idle_throttle_to_rpm_pid_p[TABLE_ROTATES_16];
-    uint16_t idle_throttle_to_rpm_pid_i[TABLE_ROTATES_16];
-    uint16_t idle_throttle_to_rpm_pid_d[TABLE_ROTATES_16];
+    int16_t idle_throttle_to_rpm_pid_p[TABLE_ROTATES_16];
+    int16_t idle_throttle_to_rpm_pid_i[TABLE_ROTATES_16];
+    int16_t idle_throttle_to_rpm_pid_d[TABLE_ROTATES_16];
 
-    uint16_t idle_ign_to_rpm_pid_p[TABLE_ROTATES_16];
-    uint16_t idle_ign_to_rpm_pid_i[TABLE_ROTATES_16];
-    uint16_t idle_ign_to_rpm_pid_d[TABLE_ROTATES_16];
+    int16_t idle_ign_to_rpm_pid_p[TABLE_ROTATES_16];
+    int16_t idle_ign_to_rpm_pid_i[TABLE_ROTATES_16];
+    int16_t idle_ign_to_rpm_pid_d[TABLE_ROTATES_16];
 
     float short_term_corr_pid_p;
     float short_term_corr_pid_i;

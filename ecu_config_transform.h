@@ -5,10 +5,10 @@
  *      Author: VHEMaster
  */
 
-#ifndef ECU_INTERPOLATION_H_
-#define ECU_INTERPOLATION_H_
+#ifndef ECU_CONFIG_TRANSFORM_H_
+#define ECU_CONFIG_TRANSFORM_H_
 
-#include "interpolation.h"
+#include "interpolation_extended.h"
 #include "defines.h"
 #include "structs.h"
 
@@ -378,4 +378,160 @@ STATIC_INLINE float ecu_interpolate_1d_set_s32(sMathInterpolateInput input, int3
   return math_interpolate_1d_set_s32(input, table, &interpolate_transform, new_value, limit_l, limit_h);
 }
 
-#endif /* ECU_INTERPOLATION_H_ */
+STATIC_INLINE void ecu_transform_from_u8(float *dst, const uint8_t *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
+{
+  uint32_t items;
+
+  src_sizeof /= sizeof(*src);
+  dst_sizeof /= sizeof(*dst);
+  items = MIN(src_sizeof, dst_sizeof);
+
+  while(items--) {
+    *dst++ = *src++ * transform->gain + transform->offset;
+  }
+}
+
+STATIC_INLINE void ecu_transform_from_u16(float *dst, const uint16_t *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
+{
+  uint32_t items;
+
+  src_sizeof /= sizeof(*src);
+  dst_sizeof /= sizeof(*dst);
+  items = MIN(src_sizeof, dst_sizeof);
+
+  while(items--) {
+    *dst++ = *src++ * transform->gain + transform->offset;
+  }
+}
+
+STATIC_INLINE void ecu_transform_from_u32(float *dst, const uint32_t *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
+{
+  uint32_t items;
+
+  src_sizeof /= sizeof(*src);
+  dst_sizeof /= sizeof(*dst);
+  items = MIN(src_sizeof, dst_sizeof);
+
+  while(items--) {
+    *dst++ = *src++ * transform->gain + transform->offset;
+  }
+}
+
+STATIC_INLINE void ecu_transform_from_s8(float *dst, const int8_t *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
+{
+  uint32_t items;
+
+  src_sizeof /= sizeof(*src);
+  dst_sizeof /= sizeof(*dst);
+  items = MIN(src_sizeof, dst_sizeof);
+
+  while(items--) {
+    *dst++ = *src++ * transform->gain + transform->offset;
+  }
+}
+
+STATIC_INLINE void ecu_transform_from_s16(float *dst, const int16_t *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
+{
+  uint32_t items;
+
+  src_sizeof /= sizeof(*src);
+  dst_sizeof /= sizeof(*dst);
+  items = MIN(src_sizeof, dst_sizeof);
+
+  while(items--) {
+    *dst++ = *src++ * transform->gain + transform->offset;
+  }
+}
+
+STATIC_INLINE void ecu_transform_from_s32(float *dst, const int32_t *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
+{
+  uint32_t items;
+
+  src_sizeof /= sizeof(*src);
+  dst_sizeof /= sizeof(*dst);
+  items = MIN(src_sizeof, dst_sizeof);
+
+  while(items--) {
+    *dst++ = *src++ * transform->gain + transform->offset;
+  }
+}
+
+STATIC_INLINE void ecu_transform_to_u8(uint8_t *dst, const float *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
+{
+  uint32_t items;
+
+  src_sizeof /= sizeof(*src);
+  dst_sizeof /= sizeof(*dst);
+  items = MIN(src_sizeof, dst_sizeof);
+
+  while(items--) {
+    *dst++ = (*src++ - transform->offset) / transform->gain;
+  }
+}
+
+STATIC_INLINE void ecu_transform_to_u16(uint16_t *dst, const float *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
+{
+  uint32_t items;
+
+  src_sizeof /= sizeof(*src);
+  dst_sizeof /= sizeof(*dst);
+  items = MIN(src_sizeof, dst_sizeof);
+
+  while(items--) {
+    *dst++ = (*src++ - transform->offset) / transform->gain;
+  }
+}
+
+STATIC_INLINE void ecu_transform_to_u32(uint32_t *dst, const float *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
+{
+  uint32_t items;
+
+  src_sizeof /= sizeof(*src);
+  dst_sizeof /= sizeof(*dst);
+  items = MIN(src_sizeof, dst_sizeof);
+
+  while(items--) {
+    *dst++ = (*src++ - transform->offset) / transform->gain;
+  }
+}
+
+STATIC_INLINE void ecu_transform_to_s8(int8_t *dst, const float *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
+{
+  uint32_t items;
+
+  src_sizeof /= sizeof(*src);
+  dst_sizeof /= sizeof(*dst);
+  items = MIN(src_sizeof, dst_sizeof);
+
+  while(items--) {
+    *dst++ = (*src++ - transform->offset) / transform->gain;
+  }
+}
+
+STATIC_INLINE void ecu_transform_to_s16(int16_t *dst, const float *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
+{
+  uint32_t items;
+
+  src_sizeof /= sizeof(*src);
+  dst_sizeof /= sizeof(*dst);
+  items = MIN(src_sizeof, dst_sizeof);
+
+  while(items--) {
+    *dst++ = (*src++ - transform->offset) / transform->gain;
+  }
+}
+
+STATIC_INLINE void ecu_transform_to_s32(int32_t *dst, const float *src, uint32_t dst_sizeof, uint32_t src_sizeof, const sEcuParamTransform *transform)
+{
+  uint32_t items;
+
+  src_sizeof /= sizeof(*src);
+  dst_sizeof /= sizeof(*dst);
+  items = MIN(src_sizeof, dst_sizeof);
+
+  while(items--) {
+    *dst++ = (*src++ - transform->offset) / transform->gain;
+  }
+}
+
+#endif /* ECU_CONFIG_TRANSFORM_H_ */
