@@ -263,8 +263,6 @@ typedef struct {
     sEcuParamTransform knock_gain;
     sEcuParamTransform knock_filter_frequency;
     sEcuParamTransform knock_cy_level_multiplier;
-    sEcuParamTransform cy_corr_injection;
-    sEcuParamTransform cy_corr_ignition;
     sEcuParamTransform tsps_relative_pos;
     sEcuParamTransform tsps_desync_thr;
     sEcuParamTransform idle_ignition_time_by_tps;
@@ -397,7 +395,7 @@ typedef struct {
     uint8_t idle_rpm_pid_act_1[TABLE_TEMPERATURES];
     uint8_t idle_rpm_pid_act_2[TABLE_TEMPERATURES];
 
-    uint8_t idle_pids_rpm_koffs[TABLE_ROTATES_16];
+    int8_t idle_pids_rpm_koffs[TABLE_ROTATES_16];
     int16_t idle_valve_to_massair_pid_p[TABLE_ROTATES_16];
     int16_t idle_valve_to_massair_pid_i[TABLE_ROTATES_16];
     int16_t idle_valve_to_massair_pid_d[TABLE_ROTATES_16];
@@ -460,8 +458,8 @@ typedef struct {
     uint8_t knock_filter_frequency[TABLE_ROTATES_32];
     uint8_t knock_cy_level_multiplier[ECU_CYLINDERS_COUNT][TABLE_ROTATES_32];
 
-    int8_t cy_corr_injection[ECU_CYLINDERS_COUNT];
-    int8_t cy_corr_ignition[ECU_CYLINDERS_COUNT];
+    float cy_corr_injection[ECU_CYLINDERS_COUNT];
+    float cy_corr_ignition[ECU_CYLINDERS_COUNT];
 
     int8_t tsps_relative_pos[TABLE_ROTATES_32];
     uint8_t tsps_desync_thr[TABLE_ROTATES_16];
@@ -491,6 +489,8 @@ typedef struct {
     uint8_t dynamic_fuel_corr_gbc[TABLE_FILLING_16];
     uint8_t dynamic_fuel_corr_temp[TABLE_TEMPERATURES];
     uint8_t dynamic_fuel_corr_lpf[TABLE_ROTATES_16];
+
+    int32_t Reserved32[1304];
 }sEcuTable;
 
 typedef struct {
@@ -574,6 +574,8 @@ typedef struct {
 
     float map_pressure_gain;
     float map_pressure_offset;
+
+    int32_t Reserved32[714];
 }sEcuParams;
 
 typedef struct {
