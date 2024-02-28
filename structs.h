@@ -651,6 +651,7 @@ typedef struct {
     float ThrottleDefaultPosition;
     float ThrottleTargetPosition;
     float WishThrottleTargetPosition;
+    float WishIdleThrottlePosition;
     float MaximumThrottlePosition;
 
     float KnockSensor;
@@ -782,6 +783,7 @@ typedef struct {
     float WishIdleValvePosition;
     float WishIdleIgnitionAdvance;
     float WishIdleMassAirFlow;
+    float WishIdleThrottlePosition;
     float WishThrottleTargetPosition;
     float MaximumThrottlePosition;
     int32_t FanRelay;
@@ -799,6 +801,7 @@ typedef struct {
       uint8_t WishIdleValvePosition;
       uint8_t WishIdleIgnitionAdvance;
       uint8_t WishIdleMassAirFlow;
+      uint8_t WishIdleThrottlePosition;
       uint8_t WishThrottleTargetPosition;
       uint8_t MaximumThrottlePosition;
       uint8_t FanRelay;
