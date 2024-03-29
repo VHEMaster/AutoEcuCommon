@@ -490,7 +490,9 @@ typedef struct {
     uint8_t dynamic_fuel_corr_temp[TABLE_TEMPERATURES];
     uint8_t dynamic_fuel_corr_lpf[TABLE_ROTATES_16];
 
-    int32_t Reserved32[1304];
+    int32_t start_large_to_small_transition;
+    int32_t start_cycles_to_retry;
+    int32_t Reserved32[1302];
 }sEcuTable;
 
 typedef struct {
