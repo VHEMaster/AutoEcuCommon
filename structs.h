@@ -241,6 +241,8 @@ typedef struct {
     sEcuParamTransform idle_ign_to_rpm_pid_p;
     sEcuParamTransform idle_ign_to_rpm_pid_i;
     sEcuParamTransform idle_ign_to_rpm_pid_d;
+    sEcuParamTransform fan_enablement_speed;
+    sEcuParamTransform fan_speeds;
     sEcuParamTransform warmup_mixtures;
     sEcuParamTransform warmup_mix_koffs;
     sEcuParamTransform warmup_mix_corrs;
@@ -268,7 +270,6 @@ typedef struct {
     sEcuParamTransform idle_ignition_time_by_tps;
     sEcuParamTransform idle_econ_delay;
     sEcuParamTransform start_econ_delay;
-    sEcuParamTransform fan_advance_control;
     sEcuParamTransform idle_valve_econ_position;
     sEcuParamTransform idle_throttle_econ_position;
     sEcuParamTransform pedal_ignition_control;
@@ -416,6 +417,9 @@ typedef struct {
     int16_t idle_ign_to_rpm_pid_i[TABLE_ROTATES_16];
     int16_t idle_ign_to_rpm_pid_d[TABLE_ROTATES_16];
 
+    uint8_t fan_enablement_speed[TABLE_FAN_SPEEDS][TABLE_SPEEDS];
+    uint8_t fan_speeds[TABLE_FAN_SPEEDS];
+
     float short_term_corr_pid_p;
     float short_term_corr_pid_i;
     float short_term_corr_pid_d;
@@ -468,11 +472,6 @@ typedef struct {
     uint8_t idle_econ_delay[TABLE_TEMPERATURES];
     uint8_t start_econ_delay[TABLE_TEMPERATURES];
 
-    float fan_advance_control_low;
-    float fan_advance_control_mid;
-    float fan_advance_control_high;
-
-    int8_t fan_advance_control[TABLE_TEMPERATURES][TABLE_SPEEDS];
     uint8_t idle_valve_econ_position[TABLE_ROTATES_32];
     uint8_t idle_throttle_econ_position[TABLE_ROTATES_32];
     uint8_t pedal_ignition_control[TABLE_ROTATES_16];
@@ -492,7 +491,7 @@ typedef struct {
 
     int32_t start_large_to_small_transition;
     int32_t start_cycles_to_retry;
-    int32_t Reserved32[1302];
+    int32_t Reserved32[1354];
 }sEcuTable;
 
 typedef struct {
@@ -543,10 +542,6 @@ typedef struct {
     int32_t isIndividualCoils;
     int32_t isEconEnabled;
 
-    float fanHighTemperature;
-    float fanMidTemperature;
-    float fanLowTemperature;
-
     int32_t isBluetoothEnabled;
     int32_t bluetoothPin;
     char bluetoothName[TABLE_STRING_MAX];
@@ -577,7 +572,7 @@ typedef struct {
     float map_pressure_gain;
     float map_pressure_offset;
 
-    int32_t Reserved32[714];
+    int32_t Reserved32[717];
 }sEcuParams;
 
 typedef struct {
