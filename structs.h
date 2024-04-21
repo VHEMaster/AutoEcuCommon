@@ -361,7 +361,7 @@ typedef struct {
     uint8_t enrichment_rate[TABLE_ENRICHMENT_PERCENTS][TABLE_ENRICHMENT_PERCENTS];
     uint8_t enrichment_sync_amount[TABLE_ROTATES_16];
     uint8_t enrichment_async_amount[TABLE_ROTATES_16];
-    uint8_t enrichment_ign_corr[TABLE_ROTATES_16][TABLE_ENRICHMENT_PERCENTS];
+    int8_t enrichment_ign_corr[TABLE_ROTATES_16][TABLE_ENRICHMENT_PERCENTS];
     uint8_t enrichment_temp_mult[TABLE_TEMPERATURES];
 
     uint8_t fillings_16[TABLE_FILLING_16];
