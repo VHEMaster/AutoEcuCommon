@@ -283,6 +283,8 @@ typedef struct {
     sEcuParamTransform dynamic_fuel_corr_gbc;
     sEcuParamTransform dynamic_fuel_corr_temp;
     sEcuParamTransform dynamic_fuel_corr_lpf;
+    sEcuParamTransform enrichment_by_rate_amount;
+    sEcuParamTransform enrichment_by_filling_amount;
 }sEcuTableTransform;
 
 
@@ -491,7 +493,11 @@ typedef struct {
 
     int32_t start_large_to_small_transition;
     int32_t start_cycles_to_retry;
-    int32_t Reserved32[1354];
+
+    uint8_t enrichment_by_rate_amount[TABLE_ROTATES_16];
+    uint8_t enrichment_by_filling_amount[TABLE_ROTATES_16];
+
+    int32_t Reserved32[1342];
 }sEcuTable;
 
 typedef struct {
