@@ -403,6 +403,8 @@ int16_t PK_Copy(void * dest, void * source);
 
 void PK_SenderInit(void);
 void PK_SenderLoop(void);
+/* 1: queued, 0: queue full, -1: invalid destination or size. */
+int8_t PK_TrySendCommand(eTransChannels xDest, void *buffer, uint32_t size);
 void PK_SendCommand(eTransChannels xDest, void *buffer, uint32_t size);
 void PK_Sender_RegisterDestination(eTransChannels xDest,
     uint8_t *xQueueBuffer, uint32_t xQueueBufferSize,
